@@ -1,0 +1,54 @@
+<div class="card">
+  <div class="card-header">
+    Novo Paciente
+  </div>
+  <div class="card-body container">
+    <%= form_with model: @patient do |f| %>
+      <div class="row">
+        <div class="col">
+          <h5 class="card-title">Foto</h5>
+          <%= image_tag 'avatar-woman.png' %>
+
+          <%= f.file_field :picture %>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label>Nome</label>
+            <%= f.text_field :name, :class => 'form-control'%>
+          </div>
+
+          <div class="mb-3">
+            <label>Data de Nascimento</label>
+            <%= f.date_field :dt_nasc, :class => 'form-control'%>
+          </div>
+
+          <div class="mb-3">
+            <label>Data de Início do Atendimento</label>
+            <%= f.date_field :dt_atend, :class => 'form-control'%>
+          </div>
+
+          <div class="mb-3">
+            <label>Email</label>
+            <%= f.email_field :address, :class => 'form-control'%>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label>Resumo</label>
+            <%= f.text_area :message, size: "60x7", :class => 'form-control' %>
+          </div>
+          <div class="mb-3">
+            <label>Telefone</label>
+            <%= f.telephone_field :phone, :class => 'form-control'%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-11"></div>
+        <div class="col-1">
+          <%= f.submit 'Salvar', :class => "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
