@@ -16,6 +16,9 @@ class PatientsController < ApplicationController
   end
 
   def index
+    @therapist = Therapist.find_by(user_id: current_user.id)
+
+    @patients = @therapist.patients.page params[:page]
   end
 
   def patient_params
