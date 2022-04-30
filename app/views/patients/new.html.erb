@@ -1,52 +1,75 @@
-<div class="card">
+<div class="card mb-3">
   <div class="card-header">
     Novo Paciente
   </div>
   <div class="card-body container">
-    <%= form_with model: @patient do |f| %>
+    <%= form_with model: @patient do |patient_form| %>
       <div class="row">
         <div class="col">
           <h5 class="card-title">Foto</h5>
-          <%= image_tag 'avatar-woman.png' %>
-
-          <%= f.file_field :picture %>
+          <div class="mb-3">
+            <%= image_tag 'avatar-woman.png', :class => 'form-control' %>
+          </div>
+          <%= patient_form.file_field :photo %>
         </div>
         <div class="col">
           <div class="mb-3">
             <label>Nome</label>
-            <%= f.text_field :name, :class => 'form-control'%>
+            <%= patient_form.text_field :name, :class => 'form-control'%>
           </div>
 
           <div class="mb-3">
             <label>Data de Nascimento</label>
-            <%= f.date_field :dt_nasc, :class => 'form-control'%>
+            <%= patient_form.date_field :dt_nasc, :class => 'form-control'%>
           </div>
 
           <div class="mb-3">
             <label>Data de Início do Atendimento</label>
-            <%= f.date_field :dt_atend, :class => 'form-control'%>
+            <%= patient_form.date_field :dt_atend, :class => 'form-control'%>
           </div>
 
           <div class="mb-3">
-            <label>Email</label>
-            <%= f.email_field :address, :class => 'form-control'%>
+            <label>Telefone</label>
+            <%= patient_form.telephone_field :phone, :class => 'form-control' %>
+          </div>
+
+          <div class="mb-3">
+            <label>Resumo</label>
+            <%= patient_form.text_area :resume, size: "60x2", :class => 'form-control' %>
           </div>
         </div>
         <div class="col">
+          <h5>Criar Login</h5>
           <div class="mb-3">
-            <label>Resumo</label>
-            <%= f.text_area :message, size: "60x7", :class => 'form-control' %>
+            <p>Esses dados serão utilizados pelo paciente para fazer login no sistema.</p>
           </div>
-          <div class="mb-3">
-            <label>Telefone</label>
-            <%= f.telephone_field :phone, :class => 'form-control'%>
-          </div>
+          <%= fields_for :user do |user_form| %>
+            <%= user_form.hidden_field :role, value: 'patient' %>
+
+            <div class="mb-3">
+              <%= user_form.label :email %><br />
+              <%= user_form.email_field :email, autofocus: true, autocomplete: "email", :class => 'form-control' %>
+            </div>
+
+            <div class="mb-3">
+              <%= user_form.label :password %>
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+              <%= user_form.password_field :password, autocomplete: "new-password", :class => 'form-control' %>
+            </div>
+
+            <div class="mb-3">
+              <%= user_form.label :password_confirmation %><br />
+              <%= user_form.password_field :password_confirmation, autocomplete: "new-password", :class => 'form-control' %>
+            </div>
+          <% end %>
         </div>
       </div>
       <div class="row">
         <div class="col-11"></div>
         <div class="col-1">
-          <%= f.submit 'Salvar', :class => "btn btn-primary" %>
+          <%= patient_form.submit 'Salvar', :class => "btn btn-primary" %>
         </div>
       </div>
     <% end %>
