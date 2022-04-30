@@ -1,0 +1,84 @@
+
+<h1>Patients</h1>
+
+<div class="row">
+  <div class="col-11"></div>
+  <div class="col-1">
+    <%= link_to 'Novo +', new_patient_path %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <div class="card mb-3">
+      <div class="card-body container">
+        <h5><%= @patients.first.name %></h5>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <% unless @patients.second.nil? %>
+      <div class="card mb-3">
+        <div class="card-body container">
+          <h5><%= @patients.second.name %></h5>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <% unless @patients.third.nil? %>
+      <div class="card mb-3">
+        <div class="card-body container">
+          <div class="row">
+            <div class="col">
+              <div class='figure-index  text-center'>
+                <%= image_tag 'avatar-woman.png', :class => 'form-control image-index mb-3' %>
+                <p>Contato:   <%= @patients.third.phone %></p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="text-center mt-2">
+                <h5><%= @patients.third.name %></h5>
+                <p><%= @patients.third.resume[0..200] %>...</p>
+              </div>
+              <div class="row">
+                <div class="col-8">
+                  <%= link_to new_patient_path do %>
+                    <span class="material-symbols-outlined">assignment_ind</span>
+                  <% end %>
+                </div>
+                <div class="col-4">
+                  <%= link_to new_patient_path do %>
+                    <span class="material-symbols-outlined">edit</span>
+                  <% end %>
+                  <%= link_to new_patient_path do %>
+                    <span class="material-symbols-outlined">delete</span>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col">
+    <% unless @patients.fourth.nil? %>
+      <div class="card mb-3">
+        <div class="card-body container">
+          <h5><%= @patients.fourth.name %></h5>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-10">
+    <%= paginate @patients %>
+  </div>
+  <div class="col-2">
+  </div>
+</div>
