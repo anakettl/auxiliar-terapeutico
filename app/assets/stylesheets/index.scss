@@ -1,8 +1,95 @@
-.figure-index {
-  width: 30%;
+body {
+  font-family: Inter, sans-serif;
+  font-weight: 300;
+}
+
+.card-index {
+  background-color: var(--card-background);
+  border-color: var(--card-background);
 }
 
 .image-index {
-  width: 100%;
-  height: auto;
+  max-width: 90%;
+  border-color: white;
+}
+
+.icons-action {
+  text-decoration: none;
+  color: lighten(black, 25%);
+
+  &:hover {
+    color: black;
+  }
+}
+
+.menu {
+  background-color: var(--blue-darken);
+}
+
+.patient-name-index {
+  font-weight: 400;
+}
+
+.resume-patient {
+  min-height: 192px;
+}
+
+// sobrescrever classes bootstrap
+.btn-primary {
+  background-color: lighten(#6768D1, 10%);
+  border-color: lighten(#6768D1, 10%);
+
+  &:hover {
+    background-color: var(--purple-darken);
+    border-color: var(--purple-darken);
+  }
+}
+
+.mr-2 {
+  margin-right: .5rem;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+
+// pagination
+.pagination a, .pagination span.current, .pagination span.gap {
+  float: left;
+  padding: 0 14px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid #DDD;
+  border-left-width: 0;
+}
+
+.pagination {
+  border-left: 1px solid #ddd;
+  .first{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .prev {
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .page{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .next{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .last{
+      padding : 0;
+      float: none;
+      border: none;
+  }
 }
