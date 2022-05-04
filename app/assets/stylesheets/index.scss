@@ -27,6 +27,27 @@ body {
   }
 }
 
+.card-header-show {
+  background-color: white;
+  border-bottom: 2px solid var(--blue-darken);
+}
+
+.card-title-show {
+  font-weight: 300;
+}
+
+.card-show {
+  border-color: white;
+}
+
+.link-plano-terapeutico {
+  background-color: var(--card-background);
+
+  &:hover {
+    background-color: darken(#f4f4f5, 5%);
+  }
+}
+
 .menu {
   background-color: var(--blue-darken);
 }

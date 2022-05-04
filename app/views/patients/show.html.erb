@@ -1,0 +1,61 @@
+<div class="card card-show mb-3 mt-3">
+  <div class="card-header card-header-show">
+    <h4 class="card-title-show">Plano Terapêutico<h4>
+  </div>
+  <div class="card-body container">
+    <div class="row">
+      <div class="col-3 mb-3">
+        <div class="row mb-3">
+          <div class="col-2">
+          </div>
+          <div class="col">
+            <%= image_tag 'avatar-woman.png', :class => 'img-fluid' %>
+          </div>
+          <div class="col-2">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center">
+            <%= @patient.name %>
+          </div>
+        </div>
+      </div>
+      <div class="col mx-5">
+        <%= link_to new_patient_path, :class => 'icons-action' do %>
+          <div class="card-body container link-plano-terapeutico my-4">
+            <div class="row">
+              <div class="col-8 text-center"><h5 class="card-title-show">Anamnese</h5></div>
+              <div class="col-4 text-center"><span class="material-symbols-outlined">forum</span></div>
+            </div>
+          </div>
+        <% end %>
+        <%= link_to new_patient_path, :class => 'icons-action' do %>
+          <div class="card-body container link-plano-terapeutico">
+            <div class="row">
+              <div class="col-8 text-center"><h5 class="card-title-show">Avaliação</h5></div>
+              <div class="col-4 text-center"><span class="material-symbols-outlined">rule</span></div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col mx-5">
+        <%= link_to new_patient_path, :class => 'icons-action' do %>
+          <div class="card-body container link-plano-terapeutico my-4">
+            <div class="row">
+              <div class="col-8 text-center"><h5 class="card-title-show">Orientação</h5></div>
+              <div class="col-4 text-center"><span class="material-symbols-outlined">house</span></div>
+            </div>
+          </div>
+        <% end %>
+        <%= link_to new_patient_path, :class => 'icons-action' do %>
+          <div class="card-body container link-plano-terapeutico">
+            <div class="row">
+              <div class="col-8 text-center"><h5 class="card-title-show">Treino</h5></div>
+              <div class="col-4 text-center"><span class="material-symbols-outlined">fitness_center</span></div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

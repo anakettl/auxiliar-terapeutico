@@ -12,6 +12,10 @@ class PatientsController < ApplicationController
     end
   end
 
+  def show
+    @patient = Patient.find(params[:id])
+  end
+
   def index
     @therapist = Therapist.find_by(user_id: current_user.id)
 

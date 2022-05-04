@@ -16,16 +16,16 @@
             <div class="col-8">
               <div class="text-center mt-2">
                 <h5 class="patient-name-index"><%= @patients.first.name %></h5>
-                <p class=""><%= @patients.first.resume[0..100] %>...</p>
+                <p class="text-justify"><%= @patients.first.resume[0..100] %>...</p>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col text-center">
               <p>Tel:   <%= @patients.first.phone %></p>
             </div>
             <div class="col">
-              <%= link_to new_patient_path do %>
+              <%= link_to patient_path(@patients.first.id) do %>
                 <span class="material-symbols-outlined icons-action align-middle">assignment_ind</span>
               <% end %>
             </div>
@@ -53,16 +53,16 @@
             <div class="col-8">
               <div class="text-center mt-2">
                 <h5 class="patient-name-index"><%= @patients.second.name %></h5>
-                <p class=""><%= @patients.second.resume[0..150] %>...</p>
+                <p class="text-justify"><%= @patients.second.resume[0..150] %>...</p>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col">
-              <p>Tel:   <%= @patients.second.phone %></p>
+            <div class="col text-center">
+              <p>Tel: <%= @patients.second.phone %></p>
             </div>
             <div class="col">
-              <%= link_to new_patient_path do %>
+              <%= link_to patient_path(@patients.second.id) do %>
                 <span class="material-symbols-outlined icons-action">assignment_ind</span>
               <% end %>
             </div>
@@ -92,16 +92,16 @@
             <div class="col-8">
               <div class="text-center mt-2">
                 <h5 class="patient-name-index"><%= @patients.third.name %></h5>
-                <p class=""><%= @patients.third.resume[0..150] %>...</p>
+                <p class="text-justify"><%= @patients.third.resume[0..150] %>...</p>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <p>Tel:   <%= @patients.third.phone %></p>
+              <p class="text-center">Tel:   <%= @patients.third.phone %></p>
             </div>
             <div class="col">
-              <%= link_to new_patient_path do %>
+              <%= link_to patient_path(@patients.third.id) do %>
                 <span class="material-symbols-outlined icons-action">assignment_ind</span>
               <% end %>
             </div>
@@ -129,16 +129,16 @@
             <div class="col-8">
               <div class="text-center mt-2">
                 <h5 class="patient-name-index"><%= @patients.fourth.name %></h5>
-                <p class=""><%= @patients.fourth.resume[0..150] %>...</p>
+                <p class="text-justify"><%= @patients.fourth.resume[0..150] %>...</p>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <p>Tel:   <%= @patients.fourth.phone %></p>
+              <p class="text-center">Tel:   <%= @patients.fourth.phone %></p>
             </div>
             <div class="col">
-              <%= link_to new_patient_path do %>
+              <%= link_to patient_path(@patients.fourth.id) do %>
                 <span class="material-symbols-outlined icons-action">assignment_ind</span>
               <% end %>
             </div>
