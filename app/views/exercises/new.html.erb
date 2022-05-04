@@ -1,1 +1,36 @@
-new exercise
+<div class="card mb-3">
+  <div class="card-header">
+    Novo Exercício
+  </div>
+  <div class="card-body container">
+    <%= form_with model: @exercise do |exercise_form| %>
+      <%= exercise_form.hidden_field :therapist_id, value: @therapist.id %>
+      <div class="row">
+        <div class="col">
+          <h5 class="card-title">Vídeo</h5>
+          <div class="mb-3">
+            <%= image_tag 'avatar-woman.png', :class => 'image-new form-control' %>
+          </div>
+          <%= exercise_form.file_field :video %>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label>Nome</label>
+            <%= exercise_form.text_field :name, :class => 'form-control'%>
+          </div>
+
+          <div class="mb-3">
+            <label>Descrição</label>
+            <%= exercise_form.text_area :description, size: "60x2", :class => 'form-control' %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-11"></div>
+        <div class="col-1">
+          <%= exercise_form.submit 'Salvar', :class => "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

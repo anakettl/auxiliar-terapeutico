@@ -1,6 +1,5 @@
 <div class="row mb-3">
-  <div class="col-10"></div>
-  <div class="col-2 text-end">
+  <div class="col text-end">
     <%= link_to 'Novo +', new_patient_path, class: "btn btn-primary" %>
   </div>
 </div>
@@ -11,32 +10,32 @@
       <div class="card card-index">
         <div class="card-body container">
           <div class="row">
-            <div class="col">
-              <div class='figure-index  text-center'>
-                <%= image_tag 'avatar-woman.png', :class => 'form-control image-index mb-3' %>
-                <p>Contato:   <%= @patients.first.phone %></p>
-              </div>
+            <div class="col-4">
+              <%= image_tag 'avatar-woman.png', :class => 'form-control img-fluid mb-3' %>
             </div>
-            <div class="col mr-2">
+            <div class="col-8">
               <div class="text-center mt-2">
                 <h5 class="patient-name-index"><%= @patients.first.name %></h5>
-                <p class="resume-patient text-justify"><%= @patients.first.resume[0..150] %>...</p>
+                <p class=""><%= @patients.first.resume[0..100] %>...</p>
               </div>
-              <div class="row">
-                <div class="col-8">
-                  <%= link_to new_patient_path do %>
-                    <span class="material-symbols-outlined icons-action">assignment_ind</span>
-                  <% end %>
-                </div>
-                <div class="text-end col-4">
-                  <%= link_to new_patient_path do %>
-                    <span class="material-symbols-outlined icons-action">delete</span>
-                  <% end %>
-                  <%= link_to new_patient_path do %>
-                    <span class="material-symbols-outlined icons-action">edit</span>
-                  <% end %>
-                </div>
-              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p>Tel:   <%= @patients.first.phone %></p>
+            </div>
+            <div class="col">
+              <%= link_to new_patient_path do %>
+                <span class="material-symbols-outlined icons-action align-middle">assignment_ind</span>
+              <% end %>
+            </div>
+            <div class=" col text-end">
+              <%= link_to new_patient_path do %>
+                <span class="material-symbols-outlined icons-action align-middle">delete</span>
+              <% end %>
+              <%= link_to new_patient_path do %>
+                <span class="material-symbols-outlined icons-action align-middle">edit</span>
+              <% end %>
             </div>
           </div>
         </div>
@@ -48,32 +47,32 @@
       <div class="card card-index">
         <div class="card-body container">
           <div class="row">
-            <div class="col">
-              <div class='figure-index  text-center'>
-                <%= image_tag 'avatar-woman.png', :class => 'form-control image-index mb-3' %>
-                <p>Contato:   <%= @patients.second.phone %></p>
-              </div>
+            <div class="col-4">
+              <%= image_tag 'avatar-woman.png', :class => 'form-control img-fluid mb-3' %>
             </div>
-            <div class="col mr-2">
+            <div class="col-8">
               <div class="text-center mt-2">
                 <h5 class="patient-name-index"><%= @patients.second.name %></h5>
-                <p class="text-justify resume-patient"><%= @patients.second.resume[0..200] %>...</p>
+                <p class=""><%= @patients.second.resume[0..150] %>...</p>
               </div>
-              <div class="row">
-                <div class="col-8">
-                  <%= link_to new_patient_path do %>
-                    <span class="material-symbols-outlined icons-action">assignment_ind</span>
-                  <% end %>
-                </div>
-                <div class="text-end col-4">
-                  <%= link_to new_patient_path do %>
-                    <span class="material-symbols-outlined icons-action">delete</span>
-                  <% end %>
-                  <%= link_to new_patient_path do %>
-                    <span class="material-symbols-outlined icons-action">edit</span>
-                  <% end %>
-                </div>
-              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p>Tel:   <%= @patients.second.phone %></p>
+            </div>
+            <div class="col">
+              <%= link_to new_patient_path do %>
+                <span class="material-symbols-outlined icons-action">assignment_ind</span>
+              <% end %>
+            </div>
+            <div class=" col text-end">
+              <%= link_to new_patient_path do %>
+                <span class="material-symbols-outlined icons-action">delete</span>
+              <% end %>
+              <%= link_to new_patient_path do %>
+                <span class="material-symbols-outlined icons-action">edit</span>
+              <% end %>
             </div>
           </div>
         </div>
@@ -82,74 +81,74 @@
   </div>
 </div>
 <div class="row mb-3">
-  <div class="col">
+  <div class="col mb-3">
     <% unless @patients.third.nil? %>
       <div class="card card-index">
         <div class="card-body container">
           <div class="row">
-            <div class="col">
-              <div class='figure-index  text-center'>
-                <%= image_tag 'avatar-woman.png', :class => 'form-control image-index mb-3' %>
-                <p>Contato:   <%= @patients.third.phone %></p>
-              </div>
+            <div class="col-4">
+              <%= image_tag 'avatar-woman.png', :class => 'form-control img-fluid mb-3' %>
             </div>
-            <div class="col mr-2">
+            <div class="col-8">
               <div class="text-center mt-2">
                 <h5 class="patient-name-index"><%= @patients.third.name %></h5>
-                <p class="text-justify resume-patient"><%= @patients.third.resume[0..200] %>...</p>
+                <p class=""><%= @patients.third.resume[0..150] %>...</p>
               </div>
-              <div class="row">
-                <div class="col-8">
-                  <%= link_to new_patient_path do %>
-                    <span class="material-symbols-outlined icons-action">assignment_ind</span>
-                  <% end %>
-                </div>
-                <div class="text-end col-4">
-                  <%= link_to new_patient_path do %>
-                    <span class="material-symbols-outlined icons-action">delete</span>
-                  <% end %>
-                  <%= link_to new_patient_path do %>
-                    <span class="material-symbols-outlined icons-action">edit</span>
-                  <% end %>
-                </div>
-              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p>Tel:   <%= @patients.third.phone %></p>
+            </div>
+            <div class="col">
+              <%= link_to new_patient_path do %>
+                <span class="material-symbols-outlined icons-action">assignment_ind</span>
+              <% end %>
+            </div>
+            <div class=" col text-end">
+              <%= link_to new_patient_path do %>
+                <span class="material-symbols-outlined icons-action">delete</span>
+              <% end %>
+              <%= link_to new_patient_path do %>
+                <span class="material-symbols-outlined icons-action">edit</span>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
     <% end %>
   </div>
-  <div class="col">
+  <div class="col mb-3">
     <% unless @patients.fourth.nil? %>
       <div class="card card-index">
         <div class="card-body container">
           <div class="row">
-            <div class="col">
-              <div class='figure-index  text-center'>
-                <%= image_tag 'avatar-woman.png', :class => 'form-control image-index mb-3' %>
-                <p>Contato:   <%= @patients.fourth.phone %></p>
-              </div>
+            <div class="col-4">
+              <%= image_tag 'avatar-woman.png', :class => 'form-control img-fluid mb-3' %>
             </div>
-            <div class="col mr-2">
+            <div class="col-8">
               <div class="text-center mt-2">
                 <h5 class="patient-name-index"><%= @patients.fourth.name %></h5>
-                <p class="text-justify resume-patient"><%= @patients.fourth.resume[0..200] %>...</p>
+                <p class=""><%= @patients.fourth.resume[0..150] %>...</p>
               </div>
-              <div class="row">
-                <div class="col-8">
-                  <%= link_to new_patient_path do %>
-                    <span class="material-symbols-outlined icons-action">assignment_ind</span>
-                  <% end %>
-                </div>
-                <div class="text-end col-4">
-                  <%= link_to new_patient_path do %>
-                    <span class="material-symbols-outlined icons-action">delete</span>
-                  <% end %>
-                  <%= link_to new_patient_path do %>
-                    <span class="material-symbols-outlined icons-action">edit</span>
-                  <% end %>
-                </div>
-              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p>Tel:   <%= @patients.fourth.phone %></p>
+            </div>
+            <div class="col">
+              <%= link_to new_patient_path do %>
+                <span class="material-symbols-outlined icons-action">assignment_ind</span>
+              <% end %>
+            </div>
+            <div class=" col text-end">
+              <%= link_to new_patient_path do %>
+                <span class="material-symbols-outlined icons-action">delete</span>
+              <% end %>
+              <%= link_to new_patient_path do %>
+                <span class="material-symbols-outlined icons-action">edit</span>
+              <% end %>
             </div>
           </div>
         </div>
@@ -159,9 +158,7 @@
 </div>
 
 <div class="row mb-3">
-  <div class="col-10">
+  <div class="col">
     <%= paginate @patients %>
-  </div>
-  <div class="col-2">
   </div>
 </div>

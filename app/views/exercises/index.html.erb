@@ -1,8 +1,142 @@
-lista de exercicios
+<div class="row mb-3">
+  <div class="col text-end">
+    <%= link_to 'Novo +', new_exercise_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col mb-3">
+    <% unless @exercises.first.nil? %>
+      <div class="card card-index">
+        <div class="card-body container">
+          <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+              <div class='div-video-index'>
+                <%= video_tag url_for(@exercises.first.video), controls: '', :class => 'form-control img-fluid mb-3' %>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="text-end col">
+                <%= link_to new_patient_path do %>
+                  <span class="material-symbols-outlined icons-action">delete</span>
+                <% end %>
+                <%= link_to new_patient_path do %>
+                  <span class="material-symbols-outlined icons-action">edit</span>
+                <% end %>
+              </div>
+            </div>
+            <div class="text-center mt-2">
+              <h5 class="patient-name-index"><%= @exercises.first.name %></h5>
+              <p class="video-description text-justify"><%= @exercises.first.description[0..100] %>...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col mb-3">
+    <% unless @exercises.second.nil? %>
+      <div class="card card-index">
+        <div class="card-body container">
+          <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+              <div class='div-video-index'>
+                <%= video_tag url_for(@exercises.second.video), controls: '', :class => 'form-control img-fluid mb-3' %>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="text-end col">
+                <%= link_to new_patient_path do %>
+                  <span class="material-symbols-outlined icons-action">delete</span>
+                <% end %>
+                <%= link_to new_patient_path do %>
+                  <span class="material-symbols-outlined icons-action">edit</span>
+                <% end %>
+              </div>
+            </div>
+            <div class="text-center mt-2">
+              <h5 class="patient-name-index"><%= @exercises.second.name %></h5>
+              <p class="video-description text-justify"><%= @exercises.second.description[0..100] %>...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col mb-3">
+    <% unless @exercises.third.nil? %>
+      <div class="card card-index">
+        <div class="card-body container">
+          <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+              <div class='div-video-index'>
+                <%= video_tag url_for(@exercises.third.video), controls: '', :class => 'form-control img-fluid mb-3' %>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="text-end col">
+                <%= link_to new_patient_path do %>
+                  <span class="material-symbols-outlined icons-action">delete</span>
+                <% end %>
+                <%= link_to new_patient_path do %>
+                  <span class="material-symbols-outlined icons-action">edit</span>
+                <% end %>
+              </div>
+            </div>
+            <div class="text-center mt-2">
+              <h5 class="patient-name-index"><%= @exercises.third.name %></h5>
+              <p class="video-description text-justify"><%= @exercises.third.description[0..100] %>...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col mb-3">
+    <% unless @exercises.fourth.nil? %>
+      <div class="card card-index">
+        <div class="card-body container">
+          <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+              <div class='div-video-index'>
+                <%= video_tag url_for(@exercises.fourth.video), controls: '', :class => 'form-control img-fluid mb-3' %>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="text-end col">
+                <%= link_to new_patient_path do %>
+                  <span class="material-symbols-outlined icons-action">delete</span>
+                <% end %>
+                <%= link_to new_patient_path do %>
+                  <span class="material-symbols-outlined icons-action">edit</span>
+                <% end %>
+              </div>
+            </div>
+            <div class="text-center mt-2">
+              <h5 class="patient-name-index"><%= @exercises.fourth.name %></h5>
+              <p class="video-description text-justify"><%= @exercises.fourth.description[0..100] %>...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 <div class="row mb-3">
-  <div class="col-10"></div>
-  <div class="col-2 text-end">
-    <%= link_to 'Novo +', new_exercise_path, class: "btn btn-primary" %>
+  <div class="col-10">
+    <%= paginate @exercises %>
+  </div>
+  <div class="col-2">
   </div>
 </div>
