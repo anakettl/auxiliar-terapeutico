@@ -1,17 +1,25 @@
-<div class="card mb-3">
-  <div class="card-header">
-    Novo Exercício
+<div class="card card-show my-3">
+  <div class="card-header card-header-show">
+    <h4 class="card-title-show">Novo Exercício<h4>
   </div>
   <div class="card-body container">
     <%= form_with model: @exercise do |exercise_form| %>
       <%= exercise_form.hidden_field :therapist_id, value: @therapist.id %>
       <div class="row">
         <div class="col">
-          <h5 class="card-title">Vídeo</h5>
-          <div class="mb-3">
-            <%= image_tag 'avatar-woman.png', :class => 'image-new form-control' %>
+          <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-8">
+              <h5 class="card-title">Vídeo</h5>
+              <div class="mb-3 text-center">
+                <%= image_tag 'avatar-woman.png', :class => 'img-responsive' %>
+              </div>
+              <%= exercise_form.file_field :video, :class => 'form-control' %>
+            </div>
+            <div class="col">
+            </div>
           </div>
-          <%= exercise_form.file_field :video %>
         </div>
         <div class="col">
           <div class="mb-3">

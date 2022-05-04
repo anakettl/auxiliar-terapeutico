@@ -1,16 +1,16 @@
-<div class="card mb-3">
-  <div class="card-header">
-    Novo Paciente
+<div class="card card-show my-3">
+  <div class="card-header card-header-show">
+    <h4 class="card-title-show">Novo Paciente<h4>
   </div>
   <div class="card-body container">
     <%= form_with model: @patient do |patient_form| %>
       <div class="row">
-        <div class="col">
+        <div class="col-3">
           <h5 class="card-title">Foto</h5>
-          <div class="mb-3">
-            <%= image_tag 'avatar-woman.png', :class => 'form-control' %>
+          <div class="mb-3 text-center">
+            <%= image_tag 'avatar-woman.png', :class => 'img-responsive' %>
           </div>
-          <%= patient_form.file_field :photo %>
+          <%= patient_form.file_field :photo, :class => 'form-control' %>
         </div>
         <div class="col">
           <div class="mb-3">
