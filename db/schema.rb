@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_03_205905) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_07_003635) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,6 +51,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_03_205905) do
     t.index ["therapist_id"], name: "index_exercises_on_therapist_id"
   end
 
+  create_table "frequencies", force: :cascade do |t|
+    t.integer "repetition"
+    t.integer "time"
+    t.integer "series"
+    t.bigint "exercise_id"
+    t.bigint "training_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercise_id"], name: "index_frequencies_on_exercise_id"
+    t.index ["training_id"], name: "index_frequencies_on_training_id"
+  end
+
   create_table "patients", force: :cascade do |t|
     t.string "name"
     t.datetime "dt_nasc"
@@ -72,6 +84,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_03_205905) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_therapists_on_user_id"
+  end
+
+  create_table "trainings", force: :cascade do |t|
+    t.string "title"
+    t.datetime "dt_start"
+    t.datetime "dt_end"
+    t.text "orientation"
+    t.bigint "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_trainings_on_patient_id"
   end
 
   create_table "users", force: :cascade do |t|

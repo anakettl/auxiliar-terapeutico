@@ -47,7 +47,7 @@
             </div>
           </div>
         <% end %>
-        <%= link_to new_patient_path, :class => 'icons-action' do %>
+        <%= link_to patient_trainings_path(patient_id: @patient.id), :class => 'icons-action' do %>
           <div class="card-body container link-plano-terapeutico">
             <div class="row">
               <div class="col-8 text-center"><h5 class="card-title-show">Treino</h5></div>
