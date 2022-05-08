@@ -19,7 +19,11 @@ class PatientsController < ApplicationController
   def index
     @therapist = Therapist.find_by(user_id: current_user.id)
 
-    @patients = @therapist.patients.page params[:page]
+    unless @therapist.nil?
+      @patients = @therapist.patients.page params[:page]
+    else
+      redirect_to dashboard_path
+    end
   end
 
   def patient_params

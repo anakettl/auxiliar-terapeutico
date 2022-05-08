@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "patients#index"
+  root "dashboard#index", as: :dashboard
 
   resources :patients do
     resources :trainings
   end
   resources :exercises
+
+  get '/delete_session', to: 'users#delete_session'
 end
