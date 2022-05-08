@@ -10,6 +10,9 @@ class TrainingsController < ApplicationController
   end
 
   def index
+    @patient = Patient.find(params[:patient_id])
+
+    @trainings = @patient.trainings.order(:dt_start).page params[:page]
   end
 
   def create

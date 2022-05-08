@@ -1,5 +1,326 @@
-<div class="row mb-3">
+<div class="row my-3">
   <div class="col text-end">
     <%= link_to 'Novo +', new_patient_training_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col mb-3">
+    <% unless @trainings.first.nil? %>
+      <div class="card card-index">
+        <div class="card-body container">
+          <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+              <div class="card card-show text-center">
+                <div class="card-header card-header-show">
+                  <h4 class="card-title-show"><%= @trainings.first.title %><h4>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <label>Orientações</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <%= @trainings.first.orientation %>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer card-footer-show text-muted">
+                  <div class="row">
+                    <div class="col">
+                      <div class="row">
+                        <div class="col">
+                          <label>Data de Início</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <%= @trainings.first.dt_start.strftime("%d/%m/%Y") %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="row">
+                        <div class="col">
+                          <label>Data de Término</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <%= @trainings.first.dt_end.strftime("%d/%m/%Y") %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="text-end col">
+                <div class="row">
+                  <div class="col">
+                    <%= link_to new_patient_path do %>
+                      <span class="material-symbols-outlined icons-action">delete</span>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <%= link_to new_patient_path do %>
+                      <span class="material-symbols-outlined icons-action">edit</span>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col mb-3">
+    <% unless @trainings.second.nil? %>
+      <div class="card card-index">
+        <div class="card-body container">
+          <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+              <div class="card card-show text-center">
+                <div class="card-header card-header-show">
+                  <h4 class="card-title-show"><%= @trainings.second.title %><h4>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <label>Orientações</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <%= @trainings.second.orientation %>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer card-footer-show text-muted">
+                  <div class="row">
+                    <div class="col">
+                      <div class="row">
+                        <div class="col">
+                          <label>Data de Início</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <%= @trainings.second.dt_start.strftime("%d/%m/%Y") %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="row">
+                        <div class="col">
+                          <label>Data de Término</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <%= @trainings.second.dt_end.strftime("%d/%m/%Y") %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="text-end col">
+                <div class="row">
+                  <div class="col">
+                    <%= link_to new_patient_path do %>
+                      <span class="material-symbols-outlined icons-action">delete</span>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <%= link_to new_patient_path do %>
+                      <span class="material-symbols-outlined icons-action">edit</span>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col mb-3">
+    <% unless @trainings.third.nil? %>
+      <div class="card card-index">
+        <div class="card-body container">
+          <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+              <div class="card card-show text-center">
+                <div class="card-header card-header-show">
+                  <h4 class="card-title-show"><%= @trainings.third.title %><h4>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <label>Orientações</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <%= @trainings.third.orientation %>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer card-footer-show text-muted">
+                  <div class="row">
+                    <div class="col">
+                      <div class="row">
+                        <div class="col">
+                          <label>Data de Início</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <%= @trainings.third.dt_start.strftime("%d/%m/%Y") %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="row">
+                        <div class="col">
+                          <label>Data de Término</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <%= @trainings.third.dt_end.strftime("%d/%m/%Y") %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="text-end col">
+                <div class="row">
+                  <div class="col">
+                    <%= link_to new_patient_path do %>
+                      <span class="material-symbols-outlined icons-action">delete</span>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <%= link_to new_patient_path do %>
+                      <span class="material-symbols-outlined icons-action">edit</span>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col mb-3">
+    <% unless @trainings.fourth.nil? %>
+      <div class="card card-index">
+        <div class="card-body container">
+          <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+              <div class="card card-show text-center">
+                <div class="card-header card-header-show">
+                  <h4 class="card-title-show"><%= @trainings.fourth.title %><h4>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <label>Orientações</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <%= @trainings.fourth.orientation %>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer card-footer-show text-muted">
+                  <div class="row">
+                    <div class="col">
+                      <div class="row">
+                        <div class="col">
+                          <label>Data de Início</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <%= @trainings.fourth.dt_start.strftime("%d/%m/%Y") %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="row">
+                        <div class="col">
+                          <label>Data de Término</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <%= @trainings.fourth.dt_end.strftime("%d/%m/%Y") %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="text-end col">
+                <div class="row">
+                  <div class="col">
+                    <%= link_to new_patient_path do %>
+                      <span class="material-symbols-outlined icons-action">delete</span>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <%= link_to new_patient_path do %>
+                      <span class="material-symbols-outlined icons-action">edit</span>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-10">
+    <%= paginate @trainings %>
+  </div>
+  <div class="col-2">
   </div>
 </div>

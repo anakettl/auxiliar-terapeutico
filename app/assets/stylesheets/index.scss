@@ -8,11 +8,6 @@ body {
   border-color: var(--card-background);
 }
 
-// .image-index {
-//   max-width: 90%;
-//   border-color: white;
-// }
-
 .video-index {
   width: auto;
   height: auto;
@@ -53,6 +48,16 @@ body {
   }
 }
 
+.link-login {
+  text-decoration: none;
+  color: var(--blue-darken);
+
+  &:hover {
+    color: var(--blue-darken);
+    text-decoration: underline;
+  }
+}
+
 .menu {
   background-color: var(--blue-darken);
 }
@@ -67,12 +72,14 @@ body {
 
 // sobrescrever classes bootstrap
 .btn-primary {
-  background-color: lighten(#6768D1, 10%);
-  border-color: lighten(#6768D1, 10%);
+  background-color: var(--purple-darken);
+  border-color: var(--purple-darken);
 
-  &:hover {
-    background-color: var(--purple-darken);
-    border-color: var(--purple-darken);
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken(#6768D1, 10%);
+    border-color: darken(#6768D1, 10%);
   }
 }
 
@@ -94,33 +101,25 @@ body {
   background-color: white;
   border: 1px solid #DDD;
   border-left-width: 0;
+  color: darken(#6768D1, 10%);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: darken(#6768D1, 30%);
+  }
 }
 
 .pagination {
   border-left: 1px solid #ddd;
-  .first{
-      padding : 0;
-      float: none;
-      border: none;
-  }
-  .prev {
-      padding : 0;
-      float: none;
-      border: none;
-  }
-  .page{
-      padding : 0;
-      float: none;
-      border: none;
-  }
-  .next{
-      padding : 0;
-      float: none;
-      border: none;
-  }
-  .last{
-      padding : 0;
-      float: none;
-      border: none;
+
+  .first,
+  .prev,
+  .page,
+  .next,
+  .last {
+    padding : 0;
+    float: none;
+    border: none;
   }
 }
