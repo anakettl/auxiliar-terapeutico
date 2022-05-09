@@ -11,11 +11,14 @@
         <div class="card-body container">
           <div class="row">
             <div class="col-2">
+              <% if @trainings.first.active? %>
+                <label>ativo</label>
+              <% end %>
             </div>
             <div class="col-8">
               <div class="card card-show text-center">
                 <div class="card-header card-header-show">
-                  <h4 class="card-title-show"><%= @trainings.first.title %><h4>
+                  <h4 class="card-title-show title-training-index"><%= @trainings.first.title %><h4>
                 </div>
                 <div class="card-body">
                   <div class="row">
@@ -24,12 +27,12 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col">
+                    <div class="col card-text-training">
                       <%= @trainings.first.orientation %>
                     </div>
                   </div>
                 </div>
-                <div class="card-footer card-footer-show text-muted">
+                <div class="card-footer card-footer-show card-text-training text-muted">
                   <div class="row">
                     <div class="col">
                       <div class="row">
@@ -88,11 +91,14 @@
         <div class="card-body container">
           <div class="row">
             <div class="col-2">
+              <% if @trainings.second.active? %>
+                <label>ativo</label>
+              <% end %>
             </div>
             <div class="col-8">
               <div class="card card-show text-center">
                 <div class="card-header card-header-show">
-                  <h4 class="card-title-show"><%= @trainings.second.title %><h4>
+                  <h4 class="card-title-show title-training-index"><%= @trainings.second.title %><h4>
                 </div>
                 <div class="card-body">
                   <div class="row">
@@ -101,12 +107,12 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col">
+                    <div class="col card-text-training">
                       <%= @trainings.second.orientation %>
                     </div>
                   </div>
                 </div>
-                <div class="card-footer card-footer-show text-muted">
+                <div class="card-footer card-footer-show card-text-training text-muted">
                   <div class="row">
                     <div class="col">
                       <div class="row">
@@ -167,11 +173,14 @@
         <div class="card-body container">
           <div class="row">
             <div class="col-2">
+              <% if @trainings.third.active? %>
+                <label>ativo</label>
+              <% end %>
             </div>
             <div class="col-8">
               <div class="card card-show text-center">
                 <div class="card-header card-header-show">
-                  <h4 class="card-title-show"><%= @trainings.third.title %><h4>
+                  <h4 class="card-title-show title-training-index"><%= @trainings.third.title %><h4>
                 </div>
                 <div class="card-body">
                   <div class="row">
@@ -180,12 +189,12 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col">
+                    <div class="col card-text-training">
                       <%= @trainings.third.orientation %>
                     </div>
                   </div>
                 </div>
-                <div class="card-footer card-footer-show text-muted">
+                <div class="card-footer card-footer-show card-text-training text-muted">
                   <div class="row">
                     <div class="col">
                       <div class="row">
@@ -241,6 +250,11 @@
   <div class="col mb-3">
     <% unless @trainings.fourth.nil? %>
       <div class="card card-index">
+        <div class="position-absolute top-0 start-0">
+          <% if @trainings.fourth.active? %>
+            <label class="active-training p-1">Ativado</label>
+          <% end %>
+        </div>
         <div class="card-body container">
           <div class="row">
             <div class="col-2">
@@ -248,7 +262,7 @@
             <div class="col-8">
               <div class="card card-show text-center">
                 <div class="card-header card-header-show">
-                  <h4 class="card-title-show"><%= @trainings.fourth.title %><h4>
+                  <h4 class="card-title-show title-training-index"><%= @trainings.fourth.title %><h4>
                 </div>
                 <div class="card-body">
                   <div class="row">
@@ -256,13 +270,13 @@
                       <label>Orientações</label>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col">
+                  <%# <div class="row"> %>
+                    <div class="col card-text-training">
                       <%= @trainings.fourth.orientation %>
                     </div>
-                  </div>
+                  <%# </div> %>
                 </div>
-                <div class="card-footer card-footer-show text-muted">
+                <div class="card-footer card-footer-show card-text-training text-muted">
                   <div class="row">
                     <div class="col">
                       <div class="row">

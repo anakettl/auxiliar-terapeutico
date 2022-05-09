@@ -16,6 +16,13 @@
               <div class="mb-3 text-center">
                 <%= image_tag 'avatar-woman.png', :class => 'img-responsive' %>
                 <%= @patient.name %>
+
+                <div class="row mt-3">
+                  <div class="col">
+                    <%= training_form.check_box :active %>
+                    <label>Tornar este treino ativo</label>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col">
@@ -52,36 +59,38 @@
               <%= training_form.submit 'Salvar', :class => "btn btn-primary" %>
             </div>
           </div>
-          <div class="row overflow-scroll exercises-block">
-            <% @exercises.each do |exercise| %>
-              <%= training_form.fields_for :"frequency_#{exercise.id}" do |form_exercise| %>
-                <%= form_exercise.hidden_field :exercise_id, value: exercise.id %>
+          <div class="row overflow-auto exercises-block">
+            <div class="col">
+              <% @exercises.each do |exercise| %>
+                <%= training_form.fields_for :"frequency_#{exercise.id}" do |form_exercise| %>
+                  <%= form_exercise.hidden_field :exercise_id, value: exercise.id %>
 
-                <div class="row">
-                  <div class="col">
-                    <input type="checkbox">
-                    <%= exercise.name %>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col">
-                    <label>Séries</label>
-                    <%= form_exercise.number_field :series, in: 1..10, step: 1, :class => 'form-control' %>
+                  <div class="row">
+                    <div class="col">
+                      <input type="checkbox">
+                      <%= exercise.name %>
+                    </div>
                   </div>
 
-                  <div class="col">
-                    <label>Tempo(s)</label>
-                    <%= form_exercise.number_field :time, in: 1..300, step: 1, :class => 'form-control' %>
-                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <label>Séries</label>
+                      <%= form_exercise.number_field :series, in: 1..10, step: 1, :class => 'form-control' %>
+                    </div>
 
-                  <div class="col mb-3">
-                    <label>Repetições</label>
-                    <%= form_exercise.number_field :repetition, in: 1..50, step: 1, :class => 'form-control' %>
+                    <div class="col">
+                      <label>Tempo(s)</label>
+                      <%= form_exercise.number_field :time, in: 1..300, step: 1, :class => 'form-control' %>
+                    </div>
+
+                    <div class="col mb-3">
+                      <label>Repetições</label>
+                      <%= form_exercise.number_field :repetition, in: 1..50, step: 1, :class => 'form-control' %>
+                    </div>
                   </div>
-                </div>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
           </div>
         </div>
       </div>

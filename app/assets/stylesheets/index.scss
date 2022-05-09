@@ -3,6 +3,20 @@ body {
   font-weight: 300;
 }
 
+.active-training {
+  background-color: var(--purple-darken);
+  color: white;
+  font-size: .9rem;
+}
+
+.card-text-training {
+  font-size: .9rem;
+}
+
+.title-training-index {
+  font-size: 1.25rem;
+}
+
 .card-index {
   background-color: var(--card-background);
   border-color: var(--card-background);

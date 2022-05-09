@@ -17,8 +17,11 @@ class TrainingsController < ApplicationController
 
   def create
     @therapist = Therapist.find_by(user_id: current_user.id)
+    @patient = Patient.find(params[:patient_id])
 
     @exercises = @therapist.exercises.order(:name)
+
+    active_training = @patient.trainings.find_by(active: true)
 
     @training = Training.create(training_params)
 
@@ -33,7 +36,12 @@ class TrainingsController < ApplicationController
     end
 
     if @training.persisted?
-      redirect_to patient_trainings_path
+      if @training.active?
+        active_training.active = false
+        active_training.save
+
+        redirect_to patient_trainings_path
+      end
     else
       redirect_to new_patient_training_path
     end
@@ -45,7 +53,8 @@ class TrainingsController < ApplicationController
       :title,
       :dt_start,
       :dt_end,
-      :orientation
+      :orientation,
+      :active
     )
   end
 
