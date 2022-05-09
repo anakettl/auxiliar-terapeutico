@@ -8,6 +8,7 @@ class DashboardController < ApplicationController
       render 'patients/index'
     else
       @patient = Patient.find_by(user_id: current_user.id)
+      @training = @patient.trainings.find_by(active: true)
 
       render 'dashboard/index'
     end

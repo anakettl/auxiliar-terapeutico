@@ -1,16 +1,25 @@
-<div class="card card-show text-center my-5">
+<div class="card card-show text-center my-3">
   <div class="card-header card-header-show">
     <h4 class="card-title-show">Treino do Dia<h4>
   </div>
   <div class="card-body">
-    <% binding.pry %>
-  </div>
-    <div class="card-footer card-footer-show text-muted">
-      <% button_to 'Iniciar', '#', class: 'btn btn-primary' %>
+    <div class="row">
+    <div class="col">
     </div>
+    <div class="col-8">
+      <h5 class="card-title-show"><%= @training.title %></h5>
+
+      <%= image_tag 'disfagia.jpg', :class => 'img-fluid mb-3' %>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+  <div class="card-footer card-footer-show text-muted">
+    <%= button_to 'Iniciar', '#', class: 'btn btn-primary' %>
+  </div>
 </div>
 
-<div class="card card-show text-center my-5">
+<div class="card card-show text-center my-3">
   <div class="card-header card-header-show">
     <h4 class="card-title-show">Meu Progresso<h4>
   </div>
