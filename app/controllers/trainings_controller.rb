@@ -15,6 +15,12 @@ class TrainingsController < ApplicationController
     @trainings = @patient.trainings.order(:dt_start).page params[:page]
   end
 
+  def show
+    @patient = Patient.find_by(user_id: current_user.id)
+
+    @training = @patient.trainings.find_by(active: true)
+  end
+
   def create
     @therapist = Therapist.find_by(user_id: current_user.id)
     @patient = Patient.find(params[:patient_id])

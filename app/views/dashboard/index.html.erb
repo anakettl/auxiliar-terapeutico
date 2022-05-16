@@ -4,18 +4,21 @@
   </div>
   <div class="card-body">
     <div class="row">
-    <div class="col">
-    </div>
-    <div class="col-8">
-      <h5 class="card-title-show"><%= @training.title %></h5>
+      <div class="col">
+      </div>
+      <div class="col-8">
+        <h5 class="card-title-show"><%= @training.title %></h5>
 
-      <%= image_tag 'disfagia.jpg', :class => 'img-fluid mb-3' %>
-    </div>
-    <div class="col">
+        <%= image_tag 'disfagia.jpg', :class => 'img-fluid mb-3' %>
+
+        <p><%= @training.orientation %></p>
+      </div>
+      <div class="col">
+      </div>
     </div>
   </div>
   <div class="card-footer card-footer-show text-muted">
-    <%= button_to 'Iniciar', '#', class: 'btn btn-primary' %>
+    <%= link_to 'Iniciar', patient_training_path(patient_id: current_user.id, id: @training.id), class: 'btn btn-primary' %>
   </div>
 </div>
 
