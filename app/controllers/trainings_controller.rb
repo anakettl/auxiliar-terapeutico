@@ -16,9 +16,16 @@ class TrainingsController < ApplicationController
   end
 
   def show
-    @patient = Patient.find_by(user_id: current_user.id)
+    @therapist = Therapist.find_by(user_id: current_user.id)
 
-    @training = @patient.trainings.find_by(active: true)
+    unless @therapist.nil?
+    else
+      @patient = Patient.find_by(user_id: current_user.id)
+
+      @training = @patient.trainings.find_by(active: true)
+
+      @frequencies = @training.frequencies.order(:name)
+    end
   end
 
   def create
@@ -53,6 +60,27 @@ class TrainingsController < ApplicationController
     end
   end
 
+  def update
+    @therapist = Therapist.find_by(user_id: current_user.id)
+
+    unless @therapist.nil?
+    else
+      @patient = Patient.find_by(user_id: current_user.id)
+
+      @training = Training.find(params[:id])
+
+      executions.each do |execution|
+        Execution.create(
+          comment: execution[:comment],
+          exercise_id: execution[:exercise_id],
+          training_id: @training.id
+        )
+      end
+
+      redirect_to dashboard_path
+    end
+  end
+
   def training_params
     params.require(:training).permit(
       :patient_id,
@@ -71,5 +99,19 @@ class TrainingsController < ApplicationController
       @freq << params[:training][:"frequency_#{ex.id}"]
     end
     @freq.delete_if { |obj| obj[:series]  == "" && obj[:time]  == "" && obj[:repetition] == "" }
+  end
+
+  def executions
+    @exec = []
+
+    exercise_ids = params[:training][:exercise_ids].split(' ').map(&:to_i)
+
+    @exercises = Exercise.where(id: exercise_ids)
+
+    @exercises.each do |ex|
+      @exec << params[:training][:"execution_#{ex.id}"]
+    end
+
+    @exec
   end
 end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :patients do
     resources :trainings
+    resources :executions
   end
   resources :exercises
 

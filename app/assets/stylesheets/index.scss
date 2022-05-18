@@ -109,6 +109,10 @@ body {
   text-align: justify;
 }
 
+.background-purple-light {
+  background-color: var(--card-background);
+}
+
 
 // pagination
 .pagination a, .pagination span.current, .pagination span.gap {

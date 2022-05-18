@@ -1,27 +1,30 @@
 <div class="card card-show text-center my-3">
-  <div class="card-header card-header-show">
-    <h4 class="card-title-show"><%= @training.title %><h4>
-  </div>
-  <div class="card-body">
-    <div class="row">
-      <div class="col">
-      </div>
-      <div class="col-12">
-        <h5>Orientações</h5>
-        <p><%= @training.orientation %></p>
+  <%= form_with model: @training, url: patient_training_path(@patient, @training) do |training_form| %>
 
-        <h5 class="mb-3">Exercícios</h5>
-        <%= form_with model: @training, url: patient_trainings_path(@patient) do |training_form| %>
+    <%= training_form.hidden_field :exercise_ids, value: @training.exercises.pluck(:id) %>
+
+    <div class="card-header card-header-show">
+      <h4 class="card-title-show"><%= @training.title %><h4>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <h5>Orientações</h5>
+          <p><%= @training.orientation %></p>
+
+          <h5 class="mb-3">Exercícios</h5>
+
           <% @training.frequencies.each do |frequency| %>
-            <%= training_form.fields_for :"frequency_#{frequency.exercise.id}" do |form_exercise| %>
+            <%= training_form.fields_for :"execution_#{frequency.exercise.id}" do |form_exercise| %>
               <%= form_exercise.hidden_field :exercise_id, value: frequency.exercise.id %>
 
               <div class="row">
                 <div class="col">
                   <p class="underline"><%= frequency.exercise.name %></p>
                   <%= video_tag url_for(frequency.exercise.video), controls: '', :class => 'img-fluid mb-3' %>
+
                   <% unless frequency.series.nil? %>
-                    <div class="row">
+                    <div class="row background-purple-light">
                       <div class="col">
                         <label>Séries:</label>
                       </div>
@@ -32,7 +35,7 @@
                   <% end %>
 
                   <% unless frequency.repetition.nil? %>
-                    <div class="row">
+                    <div class="row background-purple-light">
                       <div class="col">
                         <label>Repetições:</label>
                       </div>
@@ -43,7 +46,7 @@
                   <% end %>
 
                   <% unless frequency.time.nil? %>
-                    <div class="row">
+                    <div class="row background-purple-light">
                       <div class="col">
                         <label>Tempo:</label>
                       </div>
@@ -52,18 +55,30 @@
                       </div>
                     </div>
                   <% end %>
+
+                  <div class="row">
+                    <div class="col text-start mt-4">
+                      <label class="mb-2">Adicionar Vídeo:</label>
+                      <%= form_exercise.file_field :video, :class => 'form-control' %>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col text-start mt-4">
+                      <label class="mb-2">Escrever Comentário:</label>
+                      <%= form_exercise.text_area :comment, :class => 'form-control' %>
+                    </div>
+                  </div>
                 </div>
               </div>
             <% end %>
             <hr>
           <% end %>
-        <% end %>
-      </div>
-      <div class="col">
+        </div>
       </div>
     </div>
-  </div>
-  <div class="card-footer card-footer-show text-muted">
-    <%= link_to 'Iniciar', patient_training_path(patient_id: current_user.id, id: @training.id), class: 'btn btn-primary' %>
-  </div>
+    <div class="card-footer card-footer-show text-muted">
+      <%= training_form.submit 'Enviar', :class => "btn btn-primary" %>
+    </div>
+  <% end %>
 </div>
