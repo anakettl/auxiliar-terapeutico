@@ -37,5 +37,12 @@
     <h4 class="card-title-show">Meu Progresso<h4>
   </div>
   <div class="card-body">
+    <%= month_calendar(events: @executions) do |date, executions| %>
+      <% if executions.empty? %>
+        <div><%= date.day %></div>
+      <% else %>
+        <div class="execution-today"><%= date.day %></div>
+      <% end %>
+    <% end %>
   </div>
 </div>

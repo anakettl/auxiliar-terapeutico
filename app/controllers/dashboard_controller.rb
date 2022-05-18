@@ -13,6 +13,9 @@ class DashboardController < ApplicationController
 
       @executions_today = @training&.executions&.where(created_at: Date.today.all_day)
 
+      start_date = params.fetch(:start_date, Date.today).to_date
+      @executions = Execution.where(created_at: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+
       render 'dashboard/index'
     end
   end

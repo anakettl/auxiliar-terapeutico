@@ -41,6 +41,17 @@ body {
   border-bottom: 2px solid var(--blue-darken);
 }
 
+// calendar
+.execution-today {
+  background-color: lighten(#6768D1, 20%);
+  border-radius: 8px;
+}
+
+.today div {
+  border: 1px solid var(--purple-darken);
+  border-radius: 8px;
+}
+
 .card-footer-show {
   background-color: white;
   border: 2px solid white;
