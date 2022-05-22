@@ -19,6 +19,11 @@ class TrainingsController < ApplicationController
     @therapist = Therapist.find_by(user_id: current_user.id)
 
     unless @therapist.nil?
+      @patient = Patient.find(params[:patient_id])
+
+      @training = Training.find(params[:id])
+
+      render 'show_therapist'
     else
       @patient = Patient.find_by(user_id: current_user.id)
 
@@ -69,9 +74,17 @@ class TrainingsController < ApplicationController
 
       @training = Training.find(params[:id])
 
+      if Execution.all.empty?
+        realization_group = 1
+      else
+        realization_group = Execution.all.where(training_id: @training.id).maximum(:realization_group)
+        realization_group += 1
+      end
+
       executions.each do |execution|
         Execution.create(
           comment: execution[:comment],
+          realization_group: realization_group,
           exercise_id: execution[:exercise_id],
           training_id: @training.id
         )

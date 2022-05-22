@@ -42,8 +42,9 @@ body {
 }
 
 // calendar
-.execution-today {
+.realization-today {
   background-color: lighten(#6768D1, 20%);
+  border: 1px solid var(--purple-darken);
   border-radius: 8px;
 }
 
@@ -51,6 +52,8 @@ body {
   border: 1px solid var(--purple-darken);
   border-radius: 8px;
 }
+
+//
 
 .card-footer-show {
   background-color: white;

@@ -1,7 +1,7 @@
 <div class="card card-show text-center my-3">
-  <%= form_with model: @training, url: patient_training_path(@patient, @training) do |training_form| %>
+  <%= form_with model: @realization, url: patient_training_realizations_path(@patient, @training) do |realization_form| %>
 
-    <%= training_form.hidden_field :exercise_ids, value: @training.exercises.pluck(:id) %>
+    <%= realization_form.hidden_field :exercise_ids, value: @training.exercises.pluck(:id) %>
 
     <div class="card-header card-header-show">
       <h4 class="card-title-show"><%= @training.title %><h4>
@@ -15,7 +15,7 @@
           <h5 class="mb-3">Exercícios</h5>
 
           <% @training.frequencies.each do |frequency| %>
-            <%= training_form.fields_for :"execution_#{frequency.exercise.id}" do |form_exercise| %>
+            <%= realization_form.fields_for :"execution_#{frequency.exercise.id}" do |form_exercise| %>
               <%= form_exercise.hidden_field :exercise_id, value: frequency.exercise.id %>
 
               <div class="row">
@@ -78,7 +78,7 @@
       </div>
     </div>
     <div class="card-footer card-footer-show text-muted">
-      <%= training_form.submit 'Enviar', :class => "btn btn-primary" %>
+      <%= realization_form.submit 'Enviar', :class => "btn btn-primary" %>
     </div>
   <% end %>
 </div>

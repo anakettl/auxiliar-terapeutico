@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   root "dashboard#index", as: :dashboard
 
   resources :patients do
-    resources :trainings
-    resources :executions
+    resources :trainings do
+      resources :realizations
+    end
   end
   resources :exercises
 
