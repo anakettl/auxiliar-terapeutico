@@ -7,10 +7,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Treinos</a>
+          <%= link_to 'Treinos', patient_training_realizations_path(@patient, @patient.trainings.find_by(active: true).id), class: 'nav-link active' %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Orientações</a>
+          <%= link_to 'Orientações' do %>
+            <a class="nav-link" href="#">Orientações</a>
+          <% end %>
         </li>
       </ul>
       <div class="d-flex">

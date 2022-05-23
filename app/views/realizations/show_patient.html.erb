@@ -1,0 +1,61 @@
+<div class="card card-show my-3">
+    <div class="card-header card-header-show">
+      <div class="row">
+        <div class="col">
+          <h4 class="card-title-show"><%= @realization.date.strftime('%d/%m/%Y') %><h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body container">
+      <% @training.frequencies.each do |frequency| %>
+        <% @execution = @executions.find_by(exercise_id: frequency.exercise.id) %>
+
+          <div class="row">
+            <h5><%= frequency.exercise.name %></h5>
+            <div class="row mb-2">
+              <% unless frequency.series.nil? %>
+                <div class="col">
+                  <label class="mr-2">Séries: </label><label><%= frequency.series %></label>
+                </div>
+              <% end %>
+              <% unless frequency.repetition.nil? %>
+                <div class="col">
+                  <label class="mr-2">Repetições: </label><label><%= frequency.repetition %></label>
+                </div>
+              <% end %>
+              <% unless frequency.time.nil? %>
+                <div class="col">
+                  <label class="mr-2">Tempo: </label><label><%= frequency.time %>s</label>
+                </div>
+              <% end %>
+            </div>
+
+            <%= video_tag url_for(@execution.video), controls: '', :class => 'img-fluid mb-3' %>
+            <label><%= @execution.comment %></label>
+            <div class="col">
+              <div class="card-body container background-purple-light">
+                  <div class="row">
+                    <h6 class="underline">Feedback</h6>
+                    <% if @execution.feedback.show? %>
+                      <div class="col">
+                        <label>Nota:</label>
+                       
+                          <%= @execution.feedback.grade %>
+                        
+                    <% end %>
+                  </div>
+
+                  <div class="row mt-3">
+                    <div class="col">
+                      <%= @execution.feedback.comment %>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+      <hr>
+      <% end %>
+    </div>
+</div>

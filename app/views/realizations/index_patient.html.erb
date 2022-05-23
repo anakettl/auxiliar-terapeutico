@@ -10,17 +10,11 @@
 <div class="row">
   <div class="col mb-3">
     <% unless @realizations.first.nil? %>
+    <%= link_to patient_training_realization_path(@patient, @training, @realizations.first.id), { class: 'link-index-realization-patient'} do %>
       <div class="card card-index">
-        <div class="position-absolute top-0 start-0">
-          <% if @realizations.first.feedbacks.empty? %>
-            <label class="active-training p-1">Pendente</label>
-          <% end %>
-        </div>
         <div class="card-body container">
           <div class="row">
-            <div class="col-2">
-            </div>
-            <div class="col-8">
+            <div class="col">
               <div class="card card-show text-center">
                 <div class="card-header card-header-show">
                   <h4 class="card-title-show title-training-index"><%= @realizations.first.date.strftime('%d/%m/%Y') %><h4>
@@ -55,29 +49,19 @@
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-end">
-              <%= link_to patient_training_realization_path(patient_id: params[:patient_id], training_id: params[:training_id], id: @realizations.first.id) do %>
-                <span class="material-symbols-outlined icons-action">event_available</span>
-              <% end %>
-            </div>
           </div>
         </div>
       </div>
     <% end %>
+    <% end %>
   </div>
   <div class="col mb-3">
     <% unless @realizations.second.nil? %>
+    <%= link_to patient_training_realization_path(@patient, @training, @realizations.second.id), { class: 'link-index-realization-patient'} do %>
       <div class="card card-index">
-        <div class="position-absolute top-0 start-0">
-          <% if @realizations.second.feedbacks.empty? %>
-            <label class="active-training p-1">Pendente</label>
-          <% end %>
-        </div>
         <div class="card-body container">
           <div class="row">
-            <div class="col-2">
-            </div>
-            <div class="col-8">
+            <div class="col">
               <div class="card card-show text-center">
                 <div class="card-header card-header-show">
                   <h4 class="card-title-show title-training-index"><%= @realizations.second.date.strftime('%d/%m/%Y') %><h4>
@@ -112,31 +96,21 @@
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-end">
-              <%= link_to patient_training_realization_path(patient_id: params[:patient_id], training_id: params[:training_id], id: @realizations.second.id) do %>
-                <span class="material-symbols-outlined icons-action">event_available</span>
-              <% end %>
-            </div>
           </div>
         </div>
       </div>
+    <% end %>
     <% end %>
   </div>
 </div>
 <div class="row mb-3">
   <div class="col mb-3">
     <% unless @realizations.third.nil? %>
+    <%= link_to patient_training_realization_path(@patient, @training, @realizations.third.id), { class: 'link-index-realization-patient'} do %>
       <div class="card card-index">
-        <div class="position-absolute top-0 start-0">
-          <% if @realizations.third.feedbacks.empty? %>
-            <label class="active-training p-1">Pendente</label>
-          <% end %>
-        </div>
         <div class="card-body container">
           <div class="row">
-            <div class="col-2">
-            </div>
-            <div class="col-8">
+            <div class="col">
               <div class="card card-show text-center">
                 <div class="card-header card-header-show">
                   <h4 class="card-title-show title-training-index"><%= @realizations.third.date.strftime('%d/%m/%Y') %><h4>
@@ -171,29 +145,19 @@
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-end">
-              <%= link_to patient_training_realization_path(patient_id: params[:patient_id], training_id: params[:training_id], id: @realizations.third.id) do %>
-                <span class="material-symbols-outlined icons-action">event_available</span>
-              <% end %>
-            </div>
           </div>
         </div>
       </div>
     <% end %>
+    <% end %>
   </div>
   <div class="col mb-3">
     <% unless @realizations.fourth.nil? %>
+    <%= link_to patient_training_realization_path(@patient, @training, @realizations.fourth.id), { class: 'link-index-realization-patient'} do %>
       <div class="card card-index">
-        <div class="position-absolute top-0 start-0">
-          <% if @realizations.fourth.feedbacks.empty? %>
-            <label class="active-training p-1">Pendente</label>
-          <% end %>
-        </div>
         <div class="card-body container">
           <div class="row">
-            <div class="col-2">
-            </div>
-            <div class="col-8">
+            <div class="col">
               <div class="card card-show text-center">
                 <div class="card-header card-header-show">
                   <h4 class="card-title-show title-training-index"><%= @realizations.fourth.date.strftime('%d/%m/%Y') %><h4>
@@ -228,14 +192,10 @@
                 </div>
               </div>
             </div>
-            <div class="col-2 align-self-end">
-              <%= link_to patient_training_realization_path(patient_id: params[:patient_id], training_id: params[:training_id], id: @realizations.fourth.id) do %>
-                <span class="material-symbols-outlined icons-action">event_available</span>
-              <% end %>
-            </div>
           </div>
         </div>
       </div>
+    <% end %>
     <% end %>
   </div>
 </div>

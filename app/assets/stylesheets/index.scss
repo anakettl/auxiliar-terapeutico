@@ -127,6 +127,16 @@ body {
   background-color: var(--card-background);
 }
 
+.link-index-realization-patient {
+  text-decoration: none;
+  color: black;
+  &:hover,
+  &:focus,
+  &:active {
+    color: black;
+  }
+}
+
 
 // pagination
 .pagination a, .pagination span.current, .pagination span.gap {

@@ -1,0 +1,118 @@
+<div class="card card-show my-3">
+  <%= form_with model: @realization, url: patient_training_realization_path(@patient, @training, @realization) do |realization_form| %>
+    <%= realization_form.hidden_field :executions_ids, value: @realization.executions.pluck(:id) %>
+
+    <label class="text-end px-3"><%= @patient.name %></label>
+    <div class="card-header card-header-show">
+      <div class="row">
+        <div class="col">
+          <h4 class="card-title-show"><%= @realization.date.strftime('%d/%m/%Y') %><h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body container">
+      <% @training.frequencies.each do |frequency| %>
+        <% @execution = @executions.find_by(exercise_id: frequency.exercise.id) %>
+        <%= realization_form.fields_for :"feedback_#{@execution.id}" do |form_feedback| %>
+          <%= form_feedback.hidden_field :execution_id, value: @execution.id %>
+          <div class="row">
+            <div class="col">
+              <div class="row">
+                <div class="col-1">
+                </div>
+                <div class="col">
+                  <%= video_tag url_for(@execution.video), controls: '', :class => 'img-fluid mb-3' %>
+                  <label><%= @execution.comment %></label>
+                </div>
+                <div class="col-1">
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <h5><%= frequency.exercise.name %></h5>
+              <div class="row mb-2">
+                <% unless frequency.series.nil? %>
+                  <div class="col">
+                    <label class="mr-2">Séries: </label><label><%= frequency.series %></label>
+                  </div>
+                <% end %>
+                <% unless frequency.repetition.nil? %>
+                  <div class="col">
+                    <label class="mr-2">Repetições: </label><label><%= frequency.repetition %></label>
+                  </div>
+                <% end %>
+                <% unless frequency.time.nil? %>
+                  <div class="col">
+                    <label class="mr-2">Tempo: </label><label><%= frequency.time %>s</label>
+                  </div>
+                <% end %>
+              </div>
+              <div class="card-body container background-purple-light">
+                <% if @execution.feedback.blank? %>
+                  <div class="row">
+                    <h6 class="mb-3 underline">Feedback</h6>
+                    <label class="col-sm-2">Nota</label>
+                    <div class="col-sm-4">
+                      <%= form_feedback.select(:grade, options_for_select([['1. Insuficiente',1],['2',2],['3', 3],['4', 4],['5. Excelente', 5]]), { :include_blank => 'Selecionar' }, { :class => 'form-select' }) %>
+                    </div>
+                    <%= form_feedback.check_box :show, class: 'col-sm-1 text-start form-check-input' %>
+                    <div class="col-sm-5 form-check-label">
+                      <label>Visível para o paciente</label>
+                    </div>
+                  </div>
+
+                  <div class="row mt-3">
+                    <div class="col">
+                      <label>Comentário:</label>
+                      <%= form_feedback.text_area :comment, :class => 'form-control' %>
+                    </div>
+                  </div>
+                <% else %>
+                  <div class="row">
+                    <h6 class="mb-3 underline">Feedback</h6>
+                    <label class="col-sm-2">Nota</label>
+                    <div class="col-sm-3">
+                      <%= @execution.feedback.grade %>
+                    </div>
+                    <div class="col-sm-5 form-check-label">
+                      <label>Visível para o paciente:</label>
+                    </div>
+                    <% if @execution.feedback.show? %>
+                        <div class="col-sm-2">
+                          <label>Sim</label>
+                        </div>
+                      <% else %>
+                        <div class="col-sm-2">
+                          <label>Não</label>
+                        </div>
+                      <% end %>
+                  </div>
+
+                  <div class="row mt-3">
+                    <div class="col">
+                      <label>Comentário:</label>
+                      <%= @execution.feedback.comment %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <hr>
+      <% end %>
+    </div>
+    <% if @execution.feedback.blank? %>
+      <div class="card-footer card-footer-show">
+        <div class="row">
+          <div class="col-10">
+          </div>
+          <div class="col-2 text-end">
+            <%= realization_form.submit 'Enviar', :class => "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
