@@ -1,3 +1,3 @@
 class Feedback < ApplicationRecord
-  belongs_to :execution
+  belongs_to :execution, dependent: :destroy
 end

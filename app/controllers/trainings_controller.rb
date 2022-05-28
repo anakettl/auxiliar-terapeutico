@@ -10,12 +10,8 @@ class TrainingsController < ApplicationController
   end
 
   def index
-    if current_user.therapist?
-      @patient = Patient.find(params[:patient_id])
-      @trainings = @patient.trainings.order(:dt_start).page params[:page]
-    else
-      
-    end
+    @patient = Patient.find(params[:patient_id])
+    @trainings = @patient.trainings.order(:dt_start).page params[:page]
   end
 
   def show
@@ -44,10 +40,10 @@ class TrainingsController < ApplicationController
 
     active_training = @patient.trainings.find_by(active: true)
 
-    @training = Training.create(training_params)
+    @training = Training.create!(training_params)
 
     frequencies.each do |frequency|
-      Frequency.create(
+      Frequency.create!(
         series: frequency[:series],
         time: frequency[:time],
         repetition: frequency[:repetition],
@@ -56,16 +52,18 @@ class TrainingsController < ApplicationController
       )
     end
 
-    if @training.persisted?
-      if @training.active?
-        active_training.active = false
-        active_training.save
-
-        redirect_to patient_trainings_path
-      end
-    else
-      redirect_to new_patient_training_path
+    if @training.active?
+      active_training.active = false
+      active_training.save!
+    elsif @patient.trainings.count == 1
+      @training.activate!
     end
+
+    flash[:notice] = "Treino: #{@training.title} criado com sucesso"
+    redirect_to patient_trainings_path
+  rescue StandardError => e
+    flash[:alert] = "Houve um erro durante a criação do treino"
+    redirect_to new_patient_training_path
   end
 
   def update

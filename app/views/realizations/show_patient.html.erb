@@ -10,7 +10,6 @@
     <div class="card-body container">
       <% @training.frequencies.each do |frequency| %>
         <% @execution = @executions.find_by(exercise_id: frequency.exercise.id) %>
-
           <div class="row">
             <h5><%= frequency.exercise.name %></h5>
             <div class="row mb-2">
@@ -40,9 +39,7 @@
                     <% if @execution.feedback.show? %>
                       <div class="col">
                         <label>Nota:</label>
-                       
-                          <%= @execution.feedback.grade %>
-                        
+                        <%= @execution.feedback.grade %>
                     <% end %>
                   </div>
 
@@ -54,7 +51,6 @@
               </div>
             </div>
           </div>
-
       <hr>
       <% end %>
     </div>

@@ -15,7 +15,7 @@
         <div class="col">
           <div class="mb-3">
             <label>Nome</label>
-            <%= patient_form.text_field :name, :class => 'form-control'%>
+            <%= patient_form.text_field :name, :required => true, :class => 'form-control'%>
           </div>
 
           <div class="mb-3">
@@ -48,7 +48,7 @@
 
             <div class="mb-3">
               <%= user_form.label :email %><br />
-              <%= user_form.email_field :email, autofocus: true, autocomplete: "email", :class => 'form-control' %>
+              <%= user_form.email_field :email, autofocus: true, :required => true, autocomplete: "email", :class => 'form-control' %>
             </div>
 
             <div class="mb-3">
@@ -56,12 +56,12 @@
                 <% if @minimum_password_length %>
                   <em>(<%= @minimum_password_length %> characters minimum)</em>
                 <% end %><br />
-              <%= user_form.password_field :password, autocomplete: "new-password", :class => 'form-control' %>
+              <%= user_form.password_field :password, autocomplete: "new-password", :required => true, :class => 'form-control' %>
             </div>
 
             <div class="mb-3">
               <%= user_form.label :password_confirmation %><br />
-              <%= user_form.password_field :password_confirmation, autocomplete: "new-password", :class => 'form-control' %>
+              <%= user_form.password_field :password_confirmation, autocomplete: "new-password", :required => true, :class => 'form-control' %>
             </div>
           <% end %>
         </div>

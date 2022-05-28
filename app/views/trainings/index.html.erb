@@ -5,6 +5,11 @@
 </div>
 
 <div class="row">
+  <% if @trainings.empty? %>
+    <div class="alert alert-secondary" role="alert">
+      Você ainda não possui treinos para este paciente. Clique em Novo + para criar
+    </div>
+  <% end %>
   <div class="col mb-3">
     <% unless @trainings.first.nil? %>
       <div class="card card-index">

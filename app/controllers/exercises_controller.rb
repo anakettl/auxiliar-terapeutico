@@ -6,11 +6,13 @@ class ExercisesController < ApplicationController
   end
 
   def create
-    if Exercise.create(exercise_params)
-      redirect_to exercises_path
-    else
-      redirect_to new_exercise_path
-    end
+    @exercise = Exercise.create!(exercise_params)
+
+    flash[:notice] = "Exercício: #{@exercise.name} criado com sucesso"
+    redirect_to exercises_path
+  rescue StandardError => e
+    flash[:alert] = "Houve um erro durante a criação do exercício"
+    redirect_to new_exercise_path
   end
 
   def index

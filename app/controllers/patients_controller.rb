@@ -5,11 +5,22 @@ class PatientsController < ApplicationController
   end
 
   def create
-    if Patient.create(patient_params) && User.create(user_params)
+    @user = User.create!(user_params)
+
+    @therapist = Therapist.find_by(user_id: current_user.id)
+
+    if @user.persisted?
+      @patient_instance = Patient.new(patient_params)
+      @patient_instance.user_id = @user.id
+      @patient_instance.therapist_id = @therapist.id
+      @patient_instance.save!
+
+      flash[:notice] = "Paciente: #{@patient_instance.name} criado com sucesso"
       redirect_to patients_path
-    else
-      redirect_to new_patient_path
     end
+  rescue StandardError => e
+    flash[:alert] = "Houve um erro durante a criação do paciente"
+    redirect_to new_patient_path
   end
 
   def show
