@@ -36,6 +36,9 @@ gem 'devise'
 # Add calendar
 gem "simple_calendar", "~> 2.4"
 
+# Storage assets on s3
+gem "aws-sdk-s3", require: false
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
