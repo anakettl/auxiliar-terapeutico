@@ -24,23 +24,36 @@ class RealizationsController < ApplicationController
     @patient = Patient.find_by(user_id: current_user.id)
     @training = Training.find(params[:training_id])
 
-    @realization = Realization.create(
-      date: Date.today,
-      training_id: @training.id
-    )
+    ActiveRecord::Base.transaction do
+      @realization = Realization.create!(
+        date: Date.today,
+        training_id: @training.id
+      )
 
-    if @realization.persisted?
       executions.each do |execution|
-        Execution.create(
+        @execution_instance = Execution.new(
           comment: execution[:comment],
           realization_id: @realization.id,
           exercise_id: execution[:exercise_id],
           video: execution[:video]
         )
+
+        unless @execution_instance.valid? && @execution_instance.save!
+          if @execution_instance.errors.messages.keys.include?(:comment)
+            flash[:alert] = "Adicione um comentario se nenhum vídeo foi adicionado ao exercício"
+          end
+
+          flash[:alert] = "O vídeo anexado deve ser mais curto"
+
+          return redirect_to new_patient_training_realization_path
+        end
       end
     end
 
     redirect_to dashboard_path
+  rescue StandardError => e
+    flash[:alert] = "Houve um erro para salvar o treino"
+    redirect_to new_patient_training_realization_path
   end
 
   def show

@@ -39,6 +39,9 @@ gem "simple_calendar", "~> 2.4"
 # Storage assets on s3
 gem "aws-sdk-s3", require: false
 
+# Add validation attachments
+gem 'active_storage_validations'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
