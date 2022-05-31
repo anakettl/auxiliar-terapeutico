@@ -6,8 +6,10 @@ class RealizationsController < ApplicationController
       @realizations = @training.realizations.order(:date).page params[:page]
     else
       @patient = Patient.find_by(user_id: current_user.id)
-      @training = Training.find(params[:training_id])
-      @realizations = @training.realizations.order(:date).page params[:page]
+      unless params[:training_id] == '0'
+        @training = Training.find(params[:training_id])
+        @realizations = @training.realizations.order(:date).page params[:page]
+      end
 
       render 'index_patient'
     end

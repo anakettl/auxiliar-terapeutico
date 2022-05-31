@@ -14,7 +14,7 @@ class DashboardController < ApplicationController
       @realization_today = @training&.realizations&.where(date: Date.today.all_day)
 
       start_date = params.fetch(:start_date, Date.today).to_date
-      @realizations = Realization.where(date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+      @realizations = @patient.realizations.where(date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week, )
 
       render 'dashboard/index'
     end

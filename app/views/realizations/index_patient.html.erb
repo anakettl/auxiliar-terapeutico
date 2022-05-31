@@ -7,203 +7,218 @@
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col mb-3">
-    <% unless @realizations.first.nil? %>
-    <%= link_to patient_training_realization_path(@patient, @training, @realizations.first.id), { class: 'link-index-realization-patient'} do %>
-      <div class="card card-index">
-        <div class="card-body container">
-          <div class="row">
-            <div class="col">
-              <div class="card card-show text-center">
-                <div class="card-header card-header-show">
-                  <h4 class="card-title-show title-training-index"><%= @realizations.first.date.strftime('%d/%m/%Y') %><h4>
-                </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <label>Exercícios</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col card-text-training">
-                      <label>Propostos: <%= @training.exercises.count %></label> - <label>Realizados: <%= @realizations.first.executions.count %></label>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer card-footer-show card-text-training text-muted">
-                  <div class="row">
-                    <div class="col">
-                      <div class="row">
-                        <div class="col">
-                          <label>Vídeos Anexados</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <%= @realizations.first.executions.count %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-    <% end %>
-  </div>
-  <div class="col mb-3">
-    <% unless @realizations.second.nil? %>
-    <%= link_to patient_training_realization_path(@patient, @training, @realizations.second.id), { class: 'link-index-realization-patient'} do %>
-      <div class="card card-index">
-        <div class="card-body container">
-          <div class="row">
-            <div class="col">
-              <div class="card card-show text-center">
-                <div class="card-header card-header-show">
-                  <h4 class="card-title-show title-training-index"><%= @realizations.second.date.strftime('%d/%m/%Y') %><h4>
-                </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <label>Exercícios</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col card-text-training">
-                      <label>Propostos: <%= @training.exercises.count %></label> - <label>Realizados: <%= @realizations.first.executions.count %></label>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer card-footer-show card-text-training text-muted">
-                  <div class="row">
-                    <div class="col">
-                      <div class="row">
-                        <div class="col">
-                          <label>Vídeos Anexados</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <%= @realizations.second.executions.count %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-    <% end %>
-  </div>
-</div>
-<div class="row mb-3">
-  <div class="col mb-3">
-    <% unless @realizations.third.nil? %>
-    <%= link_to patient_training_realization_path(@patient, @training, @realizations.third.id), { class: 'link-index-realization-patient'} do %>
-      <div class="card card-index">
-        <div class="card-body container">
-          <div class="row">
-            <div class="col">
-              <div class="card card-show text-center">
-                <div class="card-header card-header-show">
-                  <h4 class="card-title-show title-training-index"><%= @realizations.third.date.strftime('%d/%m/%Y') %><h4>
-                </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <label>Exercícios</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col card-text-training">
-                      <label>Propostos: <%= @training.exercises.count %></label> - <label>Realizados: <%= @realizations.first.executions.count %></label>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer card-footer-show card-text-training text-muted">
-                  <div class="row">
-                    <div class="col">
-                      <div class="row">
-                        <div class="col">
-                          <label>Vídeos Anexados</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <%= @realizations.third.executions.count %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-    <% end %>
-  </div>
-  <div class="col mb-3">
-    <% unless @realizations.fourth.nil? %>
-    <%= link_to patient_training_realization_path(@patient, @training, @realizations.fourth.id), { class: 'link-index-realization-patient'} do %>
-      <div class="card card-index">
-        <div class="card-body container">
-          <div class="row">
-            <div class="col">
-              <div class="card card-show text-center">
-                <div class="card-header card-header-show">
-                  <h4 class="card-title-show title-training-index"><%= @realizations.fourth.date.strftime('%d/%m/%Y') %><h4>
-                </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <label>Exercícios</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col card-text-training">
-                      <label>Propostos: <%= @training.exercises.count %></label> - <label>Realizados: <%= @realizations.first.executions.count %></label>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer card-footer-show card-text-training text-muted">
-                  <div class="row">
-                    <div class="col">
-                      <div class="row">
-                        <div class="col">
-                          <label>Vídeos Anexados</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <%= @realizations.fourth.executions.count %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-    <% end %>
-  </div>
-</div>
 
-<div class="row mb-3">
-  <div class="col-10">
-    <%= paginate @realizations %>
+<% if @realizations.nil? %>
+  <div class="row">
+    <div class="col">
+      <div class="card-body container">
+        <div class="alert alert-secondary" role="alert">
+          Você ainda não possui treinos realizados. Realize um treino na página inicial.
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-2">
+<% else %>
+  <div class="row">
+    <div class="col mb-3 xipsu">
+      <% unless @realizations.first.nil? %>
+        <%= link_to patient_training_realization_path(@patient, @training, @realizations.first.id), { class: 'link-index-realization-patient'} do %>
+          <div class="card card-index">
+            <div class="card-body container">
+              <div class="row">
+                <div class="col">
+                  <div class="card card-show text-center">
+                    <div class="card-header card-header-show">
+                      <h4 class="card-title-show title-training-index"><%= @realizations.first.date.strftime('%d/%m/%Y') %><h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <label>Exercícios</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col card-text-training">
+                          <label>Propostos: <%= @training.exercises.count %></label> - <label>Realizados: <%= @realizations.first.executions.count %></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer card-footer-show card-text-training text-muted">
+                      <div class="row">
+                        <div class="col">
+                          <div class="row">
+                            <div class="col">
+                              <label>Vídeos Anexados</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <%= @realizations.first.executions.count %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col mb-3 ypsilu">
+      <% unless @realizations.second.nil? %>
+        <%= link_to patient_training_realization_path(@patient, @training, @realizations.second.id), { class: 'link-index-realization-patient'} do %>
+          <div class="card card-index">
+            <div class="card-body container">
+              <div class="row">
+                <div class="col">
+                  <div class="card card-show text-center">
+                    <div class="card-header card-header-show">
+                      <h4 class="card-title-show title-training-index"><%= @realizations.second.date.strftime('%d/%m/%Y') %><h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <label>Exercícios</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col card-text-training">
+                          <label>Propostos: <%= @training.exercises.count %></label> - <label>Realizados: <%= @realizations.first.executions.count %></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer card-footer-show card-text-training text-muted">
+                      <div class="row">
+                        <div class="col">
+                          <div class="row">
+                            <div class="col">
+                              <label>Vídeos Anexados</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <%= @realizations.second.executions.count %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+  <div class="row mb-3">
+    <div class="col mb-3 napsu">
+      <% unless @realizations.third.nil? %>
+        <%= link_to patient_training_realization_path(@patient, @training, @realizations.third.id), { class: 'link-index-realization-patient'} do %>
+          <div class="card card-index">
+            <div class="card-body container">
+              <div class="row">
+                <div class="col">
+                  <div class="card card-show text-center">
+                    <div class="card-header card-header-show">
+                      <h4 class="card-title-show title-training-index"><%= @realizations.third.date.strftime('%d/%m/%Y') %><h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <label>Exercícios</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col card-text-training">
+                          <label>Propostos: <%= @training.exercises.count %></label> - <label>Realizados: <%= @realizations.first.executions.count %></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer card-footer-show card-text-training text-muted">
+                      <div class="row">
+                        <div class="col">
+                          <div class="row">
+                            <div class="col">
+                              <label>Vídeos Anexados</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <%= @realizations.third.executions.count %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col mb-3 ebsu">
+      <% unless @realizations.fourth.nil? %>
+        <%= link_to patient_training_realization_path(@patient, @training, @realizations.fourth.id), { class: 'link-index-realization-patient'} do %>
+          <div class="card card-index">
+            <div class="card-body container">
+              <div class="row">
+                <div class="col">
+                  <div class="card card-show text-center">
+                    <div class="card-header card-header-show">
+                      <h4 class="card-title-show title-training-index"><%= @realizations.fourth.date.strftime('%d/%m/%Y') %><h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <label>Exercícios</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col card-text-training">
+                          <label>Propostos: <%= @training.exercises.count %></label> - <label>Realizados: <%= @realizations.first.executions.count %></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer card-footer-show card-text-training text-muted">
+                      <div class="row">
+                        <div class="col">
+                          <div class="row">
+                            <div class="col">
+                              <label>Vídeos Anexados</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <%= @realizations.fourth.executions.count %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<% unless @realizations.nil? %>
+  <div class="row mb-3">
+    <div class="col-10">
+      <%= paginate @realizations %>
+    </div>
+    <div class="col-2">
+    </div>
+  </div>
+<% end %>

@@ -22,7 +22,6 @@ class ExercisesController < ApplicationController
 
   def index
     @therapist = Therapist.find_by(user_id: current_user.id)
-
     @exercises = @therapist.exercises.page params[:page]
   end
 
