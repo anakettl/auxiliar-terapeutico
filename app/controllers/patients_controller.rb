@@ -1,4 +1,14 @@
 class PatientsController < ApplicationController
+  def index
+    @therapist = Therapist.find_by(user_id: current_user.id)
+
+    unless @therapist.nil?
+      @patients = @therapist.patients.page params[:page]
+    else
+      redirect_to dashboard_path
+    end
+  end
+
   def new
     @patient = Patient.new
     @user = User.new
@@ -27,14 +37,38 @@ class PatientsController < ApplicationController
     @patient = Patient.find(params[:id])
   end
 
-  def index
-    @therapist = Therapist.find_by(user_id: current_user.id)
+  def edit
+    @patient = Patient.find(params[:id])
+    @user = User.find(@patient.user_id)
+  end
 
-    unless @therapist.nil?
-      @patients = @therapist.patients.page params[:page]
-    else
+  def update
+    @patient = Patient.find(params[:id])
+    @user = User.find(@patient.user_id)
+
+    if @patient.update!(patient_params)
+      unless user_params[:password].blank? && user_params[:password_confirmation].blank?
+        @user.update!(user_params)
+      end
+      flash[:notice] = "Paciente: #{@patient.name} atualizado com sucesso"
+      redirect_to patients_path
+    end
+  rescue StandardError => e
+    flash[:alert] = "Houve um erro para atualizar o paciente"
+    redirect_to new_patient_path
+  end
+
+  def destroy
+    @patient = Patient.find(params[:id])
+    @user = User.find(@patient.user_id)
+
+    if @patient.destroy! && @user.destroy!
+      flash[:notice] = "Paciente deletado com sucesso"
       redirect_to dashboard_path
     end
+  rescue StandardError => e
+    flash[:alert] = "Houve um erro para deletar o paciente"
+    redirect_to dashboard_path
   end
 
   def patient_params

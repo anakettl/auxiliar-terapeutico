@@ -1,6 +1,6 @@
 class Patient < ApplicationRecord
-  belongs_to :user, dependent: :destroy
-  has_one :therapist, dependent: :destroy
+  belongs_to :user
+  belongs_to :therapist
   has_many :trainings, dependent: :destroy
   has_many :orientations, dependent: :destroy
   has_many :realizations, through: :trainings, dependent: :destroy

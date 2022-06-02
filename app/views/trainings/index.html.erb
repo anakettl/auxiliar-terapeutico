@@ -1,4 +1,5 @@
 <div class="row my-3">
+  <label class="text-start px-3"><%= @patient.name %></label>
   <div class="col text-end">
     <%= link_to 'Novo +', new_patient_training_path, class: "btn btn-primary" %>
   </div>
@@ -105,7 +106,10 @@
         </div>
         <div class="card-body container">
           <div class="row">
-            <div class="col-2">
+            <div class="col-2 align-self-end">
+              <%= link_to patient_training_path(patient_id: params[:patient_id], id: @trainings.second.id) do %>
+                <span class="material-symbols-outlined icons-action">event_available</span>
+              <% end %>
             </div>
             <div class="col-8">
               <div class="card card-show text-center">
@@ -189,7 +193,10 @@
         </div>
         <div class="card-body container">
           <div class="row">
-            <div class="col-2">
+            <div class="col-2 align-self-end">
+              <%= link_to patient_training_path(patient_id: params[:patient_id], id: @trainings.third.id) do %>
+                <span class="material-symbols-outlined icons-action">event_available</span>
+              <% end %>
             </div>
             <div class="col-8">
               <div class="card card-show text-center">
@@ -271,7 +278,10 @@
         </div>
         <div class="card-body container">
           <div class="row">
-            <div class="col-2">
+            <div class="col-2 align-self-end">
+              <%= link_to patient_training_path(patient_id: params[:patient_id], id: @trainings.fourth.id) do %>
+                <span class="material-symbols-outlined icons-action">event_available</span>
+              <% end %>
             </div>
             <div class="col-8">
               <div class="card card-show text-center">

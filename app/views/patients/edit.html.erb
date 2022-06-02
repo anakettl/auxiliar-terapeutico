@@ -1,0 +1,77 @@
+<div class="card card-show my-3">
+  <div class="card-header card-header-show">
+    <h4 class="card-title-show">Editar Paciente<h4>
+  </div>
+  <div class="card-body container">
+    <%= form_with model: @patient, method: :patch do |patient_form| %>
+      <div class="row">
+        <div class="col-3">
+          <h5 class="card-title">Foto</h5>
+          <div class="mb-3 text-center">
+            <%= image_tag 'avatar-woman.png', :class => 'img-responsive' %>
+          </div>
+          <%= patient_form.file_field :photo, :class => 'form-control' %>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label>Nome</label>
+            <%= patient_form.text_field :name, :required => true, :class => 'form-control'%>
+          </div>
+
+          <div class="mb-3">
+            <label>Data de Nascimento</label>
+            <%= patient_form.date_field :dt_nasc, :class => 'form-control'%>
+          </div>
+
+          <div class="mb-3">
+            <label>Data de Início do Atendimento</label>
+            <%= patient_form.date_field :dt_atend, :class => 'form-control'%>
+          </div>
+
+          <div class="mb-3">
+            <label>Telefone</label>
+            <%= patient_form.telephone_field :phone, :class => 'form-control' %>
+          </div>
+
+          <div class="mb-3">
+            <label>Resumo</label>
+            <%= patient_form.text_area :resume, size: "60x2", :class => 'form-control' %>
+          </div>
+        </div>
+        <div class="col">
+          <h5>Criar Login</h5>
+          <div class="mb-3">
+            <p>Esses dados serão utilizados pelo paciente para fazer login no sistema.</p>
+          </div>
+          <%= fields_for :user do |user_form| %>
+            <%= user_form.hidden_field :role, value: 'patient' %>
+
+            <div class="mb-3">
+              <%= user_form.label :email %><br />
+              <%= user_form.email_field :email, autofocus: true, :required => true, autocomplete: "email", :class => 'form-control' %>
+            </div>
+
+            <div class="mb-3">
+              <%= user_form.label :password %>
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+              <%= user_form.password_field :password, autocomplete: "new-password", :class => 'form-control' %>
+            </div>
+
+            <div class="mb-3">
+              <%= user_form.label :password_confirmation %><br />
+              <%= user_form.password_field :password_confirmation, autocomplete: "new-password", :class => 'form-control' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-11"></div>
+        <div class="col-1">
+          <%= patient_form.submit 'Atualizar', :class => "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

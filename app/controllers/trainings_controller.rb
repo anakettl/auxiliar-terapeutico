@@ -52,11 +52,11 @@ class TrainingsController < ApplicationController
       )
     end
 
-    if @training.active?
+    if @patient.trainings.count == 1
+      @training.activate!
+    elsif @training.active?
       active_training.active = false
       active_training.save!
-    elsif @patient.trainings.count == 1
-      @training.activate!
     end
 
     flash[:notice] = "Treino: #{@training.title} criado com sucesso"

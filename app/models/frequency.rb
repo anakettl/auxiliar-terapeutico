@@ -1,4 +1,4 @@
 class Frequency < ApplicationRecord
-  belongs_to :exercise, dependent: :destroy
-  belongs_to :training, dependent: :destroy
+  belongs_to :exercise
+  belongs_to :training
 end
