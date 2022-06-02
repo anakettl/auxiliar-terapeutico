@@ -10,9 +10,7 @@
           <%= link_to 'Treinos', patient_training_realizations_path(@patient, @patient.trainings.find_by(active: true)&.id || 0), class: 'nav-link active' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Orientações' do %>
-            <a class="nav-link" href="#">Orientações</a>
-          <% end %>
+          <%= link_to 'Orientações', patient_orientations_path(@patient), class: 'nav-link' %>
         </li>
       </ul>
       <div class="d-flex">

@@ -1,0 +1,160 @@
+<div class="row my-3">
+  <div class="row">
+    <div class="col">
+      <div class="card-header card-header-show">
+        <h4 class="card-title-show">Orientações<h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if @orientations.nil? || @orientations.empty? %>
+  <div class="row">
+    <div class="col">
+      <div class="card-body container">
+        <div class="alert alert-secondary" role="alert">
+          Você ainda não possui orientações cadastradas.
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="row">
+    <div class="col mb-3 xipsu">
+      <% unless @orientations.first.nil? %>
+        <%= link_to patient_orientation_path(@patient, @orientations.first.id), { class: 'link-index-realization-patient'} do %>
+          <div class="card card-index">
+            <div class="card-body container">
+              <div class="row">
+                <div class="col">
+                  <div class="card card-show text-center">
+                    <div class="card-header card-header-show">
+                      <h4 class="card-title-show title-training-index"><%= @orientations.first.name %><h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <label>Orientações</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col card-text-training">
+                          <label><%= @orientations.first.description %></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col mb-3 ypsilu">
+      <% unless @orientations.second.nil? %>
+        <%= link_to patient_orientation_path(@patient, @orientations.second.id), { class: 'link-index-realization-patient'} do %>
+          <div class="card card-index">
+            <div class="card-body container">
+              <div class="row">
+                <div class="col">
+                  <div class="card card-show text-center">
+                    <div class="card-header card-header-show">
+                      <h4 class="card-title-show title-training-index"><%= @orientations.second.name %><h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <label>Orientações</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col card-text-training">
+                          <label><%= @orientations.first.description %></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col mb-3 napsu">
+      <% unless @orientations.third.nil? %>
+        <%= link_to patient_training_realization_path(@patient, @orientations.third.id), { class: 'link-index-realization-patient'} do %>
+          <div class="card card-index">
+            <div class="card-body container">
+              <div class="row">
+                <div class="col">
+                  <div class="card card-show text-center">
+                    <div class="card-header card-header-show">
+                      <h4 class="card-title-show title-training-index"><%= @orientations.third.name %><h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <label>Orientações</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col card-text-training">
+                          <label><%= @orientations.first.description %></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col mb-3 ebsu">
+      <% unless @orientations.fourth.nil? %>
+        <%= link_to patient_orientation_path(@patient, @orientations.fourth.id), { class: 'link-index-realization-patient'} do %>
+          <div class="card card-index">
+            <div class="card-body container">
+              <div class="row">
+                <div class="col">
+                  <div class="card card-show text-center">
+                    <div class="card-header card-header-show">
+                      <h4 class="card-title-show title-training-index"><%= @orientations.fourth.name %><h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <label>Orientações</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col card-text-training">
+                          <label><%= @orientations.first.description %></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<% unless @orientation.nil? %>
+  <div class="row mb-3">
+    <div class="col-10">
+      <%= paginate @orientation %>
+    </div>
+    <div class="col-2">
+    </div>
+  </div>
+<% end %>

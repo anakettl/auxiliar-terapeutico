@@ -1,0 +1,40 @@
+<div class="card card-show my-3">
+  <div class="card-header card-header-show">
+    <h4 class="card-title-show">Nova Orientação<h4>
+  </div>
+  <div class="card-body container">
+    <%= form_with model: @orientation, url: patient_orientations_path(@patient) do |orientation_form| %>
+      <div class="row">
+        <div class="col-5">
+          <h5 class="card-title">Imagem</h5>
+          <div class="mb-3 text-center">
+            <%= image_tag 'avatar-woman.png', :class => 'img-responsive' %>
+          </div>
+          <%= orientation_form.file_field :photo, :class => 'form-control' %>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label>Nome</label>
+            <%= orientation_form.text_field :name, :required => true, :class => 'form-control'%>
+          </div>
+
+          <div class="mb-3">
+            <label>Descrição</label>
+            <%= orientation_form.text_area :description, size: "80x4", :class => 'form-control' %>
+          </div>
+
+          <div class="mb-3">
+            <%= orientation_form.check_box :active %>
+            <label>Tornar essa orientação ativa</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-11"></div>
+        <div class="col-1">
+          <%= orientation_form.submit 'Salvar', :class => "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

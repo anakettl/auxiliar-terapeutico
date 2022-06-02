@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root "dashboard#index", as: :dashboard
 
   resources :patients do
+    resources :orientations
     resources :trainings do
       resources :realizations
     end

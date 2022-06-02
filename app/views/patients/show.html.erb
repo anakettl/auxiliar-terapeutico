@@ -39,7 +39,7 @@
         <% end %>
       </div>
       <div class="col mx-5">
-        <%= link_to new_patient_path, :class => 'icons-action' do %>
+        <%= link_to patient_orientations_path(patient_id: @patient.id), :class => 'icons-action' do %>
           <div class="card-body container link-plano-terapeutico my-4">
             <div class="row">
               <div class="col-8 text-center"><h5 class="card-title-show">Orientação</h5></div>

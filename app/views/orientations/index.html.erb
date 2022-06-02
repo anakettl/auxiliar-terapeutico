@@ -1,0 +1,239 @@
+<div class="row my-3">
+  <div class="col text-end">
+    <%= link_to 'Novo +', new_patient_orientation_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+<div class="row">
+  <% if @orientations.empty? %>
+    <div class="alert alert-secondary" role="alert">
+      Você ainda não possui orientações para este paciente. Clique em Novo + para criar
+    </div>
+  <% end %>
+  <div class="col mb-3">
+    <% unless @orientations.first.nil? %>
+      <div class="card card-index">
+        <div class="position-absolute top-0 start-0">
+          <% if @orientations.first.active? %>
+            <label class="active-training p-1">Ativado</label>
+          <% end %>
+        </div>
+        <div class="card-body container">
+          <div class="row">
+            <div class="col-2 align-self-end">
+            </div>
+            <div class="col-8">
+              <div class="card card-show text-center">
+                <div class="card-header card-header-show">
+                  <h4 class="card-title-show title-training-index"><%= @orientations.first.name %><h4>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <label>Orientações</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col card-text-training">
+                      <%= @orientations.first.description %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="text-end col">
+                <div class="row">
+                  <div class="col">
+                    <%= link_to new_patient_path do %>
+                      <span class="material-symbols-outlined icons-action">delete</span>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <%= link_to new_patient_path do %>
+                      <span class="material-symbols-outlined icons-action">edit</span>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col mb-3">
+    <% unless @orientations.second.nil? %>
+      <div class="card card-index">
+        <div class="position-absolute top-0 start-0">
+          <% if @orientations.second.active? %>
+            <label class="active-training p-1">Ativado</label>
+          <% end %>
+        </div>
+        <div class="card-body container">
+          <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+              <div class="card card-show text-center">
+                <div class="card-header card-header-show">
+                  <h4 class="card-title-show title-training-index"><%= @orientations.second.name %><h4>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <label>Orientações</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col card-text-training">
+                      <%= @orientations.second.description %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="text-end col">
+                <div class="row">
+                  <div class="col">
+                    <%= link_to new_patient_path do %>
+                      <span class="material-symbols-outlined icons-action">delete</span>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <%= link_to new_patient_path do %>
+                      <span class="material-symbols-outlined icons-action">edit</span>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col mb-3">
+    <% unless @orientations.third.nil? %>
+      <div class="card card-index">
+        <div class="position-absolute top-0 start-0">
+          <% if @orientations.third.active? %>
+            <label class="active-training p-1">Ativado</label>
+          <% end %>
+        </div>
+        <div class="card-body container">
+          <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+              <div class="card card-show text-center">
+                <div class="card-header card-header-show">
+                  <h4 class="card-title-show title-training-index"><%= @orientations.third.name %><h4>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <label>Orientações</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col card-text-training">
+                      <%= @orientations.third.description %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="text-end col">
+                <div class="row">
+                  <div class="col">
+                    <%= link_to new_patient_path do %>
+                      <span class="material-symbols-outlined icons-action">delete</span>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <%= link_to new_patient_path do %>
+                      <span class="material-symbols-outlined icons-action">edit</span>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col mb-3">
+    <% unless @orientations.fourth.nil? %>
+      <div class="card card-index">
+        <div class="position-absolute top-0 start-0">
+          <% if @orientations.fourth.active? %>
+            <label class="active-training p-1">Ativado</label>
+          <% end %>
+        </div>
+        <div class="card-body container">
+          <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+              <div class="card card-show text-center">
+                <div class="card-header card-header-show">
+                  <h4 class="card-title-show title-training-index"><%= @orientations.fourth.name %><h4>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <label>Orientações</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col card-text-training">
+                      <%= @orientations.fourth.description %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="text-end col">
+                <div class="row">
+                  <div class="col">
+                    <%= link_to new_patient_path do %>
+                      <span class="material-symbols-outlined icons-action">delete</span>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <%= link_to new_patient_path do %>
+                      <span class="material-symbols-outlined icons-action">edit</span>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-10">
+    <%= paginate @orientations %>
+  </div>
+  <div class="col-2">
+  </div>
+</div>
