@@ -66,14 +66,49 @@ class TrainingsController < ApplicationController
     redirect_to new_patient_training_path
   end
 
+  def edit
+    @therapist = Therapist.find_by(user_id: current_user.id)
+    @patient = @therapist.patients.find(params[:patient_id])
+    @training = @patient.trainings.find(params[:id])
+    @frequencies = @training.frequencies
+    @exercises_training = @training.exercises
+    @exercises = @therapist.exercises
+  end
+
   def update
     @therapist = Therapist.find_by(user_id: current_user.id)
 
     unless @therapist.nil?
+      @patient = @therapist.patients.find(params[:patient_id])
+      @training = @patient.trainings.find(params[:id])
+      @exercises = @therapist.exercises.order(:name)
+
+      active_training = @patient.trainings.find_by(active: true)
+
+      @training.update!(training_params)
+
+      frequencies.each do |frequency|
+        frequency_persisted = Frequency.find_or_initialize_by(id: frequency[:frequency_id])
+        frequency_persisted.update!(
+          series: frequency[:series],
+          time: frequency[:time],
+          repetition: frequency[:repetition],
+          exercise_id: frequency[:exercise_id],
+          training_id: @training.id
+        )
+      end
+
+      if @training.active?
+        active_training.active = false
+        active_training.save!
+      end
+
+      flash[:notice] = "Treino: #{@training.title} atualizado com sucesso"
+      redirect_to patient_trainings_path
     else
       @patient = Patient.find_by(user_id: current_user.id)
 
-      @training = Training.find(params[:id])
+      @training = @patient.trainings.find(params[:id])
 
       if Execution.all.empty?
         realization_group = 1

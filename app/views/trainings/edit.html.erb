@@ -1,0 +1,107 @@
+<div class="card card-show my-3">
+  <div class="card-header card-header-show">
+    <h4 class="card-title-show">Editar Treino<h4>
+  </div>
+  <div class="card-body container">
+    <%= form_with model: @training, url: patient_training_path(@patient, @training), method: :put do |training_form| %>
+      <%= training_form.hidden_field :patient_id, value: @patient.id %>
+
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col">
+            </div>
+            <div class="col">
+              <div class="mb-3 text-center">
+                <%= image_tag 'avatar-woman.png', :class => 'img-responsive' %>
+                <%= @patient.name %>
+
+                <div class="row mt-3">
+                  <div class="col">
+                    <%= training_form.check_box :active %>
+                    <label>Tornar este treino ativo</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="my-3">
+            <label>Título</label>
+            <%= training_form.text_field :title, :required => true, :class => 'form-control'%>
+          </div>
+
+          <div class="my-3">
+            <label>Data de Início</label>
+            <%= training_form.date_field :dt_start, :required => true, :class => 'form-control'%>
+          </div>
+
+          <div class="mb-3">
+            <label>Data de Término</label>
+            <%= training_form.date_field :dt_end, :required => true, :class => 'form-control'%>
+          </div>
+
+          <div class="mb-3">
+            <label>Orientações</label>
+            <%= training_form.text_area :orientation, size: "60x2", :class => 'form-control' %>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col mb-3">
+              <label>Adicionar Exercícios</label>
+            </div>
+            <div class="col text-end">
+              <%= training_form.submit 'Salvar', :class => "btn btn-primary" %>
+            </div>
+          </div>
+          <div class="row overflow-auto exercises-block">
+            <div class="col">
+              <% @exercises.each do |exercise| %>
+                <%= training_form.fields_for :"frequency_#{exercise.id}" do |form_exercise| %>
+                  <% exist = @frequencies.pluck(:exercise_id).include?(exercise.id) %>
+                  <% if exist
+                      frequency = @frequencies.find_by(exercise_id: exercise.id)
+                    end %>
+                  <%= form_exercise.hidden_field :exercise_id, value: exercise.id %>
+                  <%= form_exercise.hidden_field :frequency_id, value: frequency&.id %>
+
+                  <div class="row">
+                    <div class="col">
+                    <% if exist %>
+                      <input type="checkbox" checked="checked">
+                    <% else %>
+                      <input type="checkbox">
+                    <% end %>
+                      <%= exercise.name %>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                      <label>Séries</label>
+                      <%= form_exercise.number_field :series, :value => frequency&.series, in: 1..10, step: 1, :class => 'form-control' %>
+                    </div>
+
+                    <div class="col">
+                      <label>Tempo(s)</label>
+                      <%= form_exercise.number_field :time, :value => frequency&.time, in: 1..300, step: 1, :class => 'form-control' %>
+                    </div>
+
+                    <div class="col mb-3">
+                      <label>Repetições</label>
+                      <%= form_exercise.number_field :repetition, :value => frequency&.repetition, in: 1..50, step: 1, :class => 'form-control' %>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
