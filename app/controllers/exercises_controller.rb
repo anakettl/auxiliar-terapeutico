@@ -9,7 +9,7 @@ class ExercisesController < ApplicationController
     @exercise_instance = Exercise.new(exercise_params)
 
     if @exercise_instance.valid? && @exercise_instance.save!
-      flash[:notice] = "Exercício: #{@exercise.name} criado com sucesso"
+      flash[:notice] = "Exercício: #{@exercise_instance.name} criado com sucesso"
       redirect_to exercises_path
     else
       flash[:alert] = @exercise_instance.errors.messages[:video].first
